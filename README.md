@@ -1,1 +1,1 @@
-Useful tutorials' links
+Useful references
