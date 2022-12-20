@@ -1,0 +1,3 @@
+In linux terminology, processor has two modes,
+1.privilleged mode --> Where all instructions from the ISA are possible (mainly physical I/O, sending bytes on network etc.)
+2.User mode --> Where certain instructions are prohibited (physical I/O, sending bytes on network i.e. above ones are prohibited)
