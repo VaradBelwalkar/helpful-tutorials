@@ -180,4 +180,35 @@ That means over there, you require go.mod file in that project2 directory as wel
    then it is not even going to look into the $GOPATH to see whether is it there or not.
    
 So even you have installed the package in your $GOPATH/src/  When you need it in another project directory, you must specify that package as 
-dependency in go.mod file then and then only go compiler will start looking for that package in the $GOPATH/src/ directory 
+dependency in go.mod file then and then only go compiler will start looking for that package in the $GOPATH/src/ directory
+
+
+So the go module search is ---->
+
+                                                  then                         then 
+Current directory of file given to go compiler ----------> system libraries -----------> 
+
+
+------->Check if dependency is listed in go.mod file (it will check in current as well as parent directories for go.mod file)
+          |                                                             |
+          | YES                                                         | NO
+          |                                                             |
+          |                                                             |
+        then                                                           then
+
+Search in the $GOPATH/src/                                  Raise error as no go.mod file fount
+directory for the package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
