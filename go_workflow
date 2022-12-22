@@ -98,47 +98,86 @@ So, technically, you cannot separate dependencies in Go language for different p
 
 
 So in the context of node.js,
-it is something like you have only one node_modules folder in you home folder, like /home/foo_user/node_modules 
-and when you run "npm install" in any project which contains package.json and package-lock.json instead of creating separate folder in that 
-project directory it is just going to install it over the single node_modules folder
+it is something like if you have only one node_modules folder in you home folder, like /home/foo_user/node_modules 
+and when you run "npm install" in any of the project which contains package.json or package-lock.json, instead of creating separate folder in that 
+project directory it is just going to install it over the single node_modules folder.
 
 
 And in the context of python,
-It is something like you can't work with virtualenv, means all your dependencies will be installed in /usr/lib/pythonxxx/site-packages/
+It is something like if you can't work with virtualenv, means all your dependencies will be installed in /usr/lib/pythonxxx/site-packages/ 
+(where xxx is python's version)
 
 
 
-(Remember above two ones are just analogies that provide you understanding in the context of node.js and python by assuming that is
+(Remember above two ones are just analogies that provide you understanding in the context of node.js and python by assuming that if
 something like that was there)
 
 
 
+So when you download some package from suppose github.com/user_name/repository_name/
+the Go will recreate the structure in $GOPATH/src/ like,
+$GOPATH/src/github.com/user_name/repository_name/*
+where * denotes all the contents that is stored in the repository.
 
 
 
+So that was all about How does Go manages dependencies.
+
+What about go install? what does it do?
+  
+it just installs necessary files into right location.
+Well what does that mean?
+
+Again suppose you are in your project directory, i.e /home/foo_user/go_project/
+
+and you have a go executable file (a file with "package main" directive at top and main function) suppose go_executable.go
+
+and you have proper dependencies listed in that file,
+then,
+
+      go install path_to_file/go_executable.go
+     
+will first build the file and its dependencies (if compiled source found for dependencies, it will use them else it will compile them as well)
+
+then it will copy the executable file (standard executable) into project's bin folder
 
 
+Always remember ------>
 
 
+If you try to import a package that is present in your GOPATH but is not listed in the go.mod file of the current module, 
+the Go compiler will not be able to find the package and will raise an error.
+
+The go.mod file defines the dependencies of a Go module, and the Go compiler uses it to resolve the import paths of those dependencies. 
+When you import a package, the Go compiler first looks for the package in the current directory (also known as the "local import path").
+If it doesn't find the package in the current directory, it will then search the directories in the GOPATH for the package.
+
+However, the Go compiler will only search the GOPATH for a package if the package is listed as a dependency in the go.mod file.
+If the package is not listed in the go.mod file, the Go compiler will not search the GOPATH for the package and will instead raise an error.
+
+In simple terms,
+
+consider the following scenario --------->
+
+You created project1 and has dependency on github.com/foo/something
+So you must need go.mod file in project1 in order to use "go get github.com/foo/something" (means create it or run "go mod init <your package name>)
+Then run that command so that it will write that dependency in that go.mod file then download the dependency in
+$GOPATH/src/ folder by recreating the structure
+Here the dependency will work fine in project1
 
 
+Now suppose you created project2 folder and it requires the same dependency, and there as well you don't have any go.mod file which determines modules 
+dependencies
+Now you will think that if the package github.com/foo/something is already downloaded then why do we need go.mod again in project2, as we are also 
+NOT running the "go get .."
+So you might think that just adding line "import github.com/foo/something" in any go file in that folder will work fine
+But it is WRONG!
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Go will only look for the system libraries directly, and it doesn't find the "github.com/foo/something" package over there(absolutely!)
+Then it will immediatly look whether you have written it as a dependency for your project in go.mod file or not !
+That means over there, you require go.mod file in that project2 directory as well as if go compiler,
+   doesn't find go.mod file or doesn't find entry for that dependency in that file,
+   then it is not even going to look into the $GOPATH to see whether is it there or not.
+   
+So even you have installed the package in your $GOPATH/src/  When you need it in another project directory, you must specify that package as 
+dependency in go.mod file then and then only go compiler will start looking for that package in the $GOPATH/src/ directory 
