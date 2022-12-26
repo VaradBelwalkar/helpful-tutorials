@@ -1,1 +1,10 @@
 https://jwt.io/introduction
+
+
+JSON Web Tokens (JWTs) are usually passed in the Authorization header of an HTTP request. 
+The Authorization header is used to send authentication information to the server, and JWTs are a common way to authenticate requests.
+
+It is also possible to pass a JWT in the body of a request, although this is not as common. 
+
+To do this, you can include the JWT in the request body as a string and set the Content-Type header to "application/jwt". 
+However, keep in mind that most servers expect JWTs to be passed in the Authorization header and may not support passing them in the body.
