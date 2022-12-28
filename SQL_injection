@@ -1,0 +1,56 @@
+Here is an example of server-side code that is vulnerable to SQL injection attacks:
+
+-----------------------------------------------------------------------------------------------------
+app.get('/search', (req, res) => {
+  const searchTerm = req.query.search;
+
+  const sql = `SELECT * FROM products WHERE name LIKE '%${searchTerm}%'`;
+  pool.query(sql, (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error fetching search results');
+    } else {
+      res.send(result.rows);
+    }
+  });
+});
+-----------------------------------------------------------------------------------------------------
+
+
+
+In this example, the server is handling a GET request to the "/search" endpoint with a query parameter called "search". 
+The server is constructing an SQL query based on the value of the "search" parameter and executing it using a database connection pool.
+
+The problem with this code is that it does not properly validate or sanitize the "search" parameter.
+An attacker could potentially inject malicious code into the parameter, such as:
+
+-----------------------------------------------------------------------------------------------------
+http://example.com/search?search='; DELETE FROM products WHERE 1=1; --
+-----------------------------------------------------------------------------------------------------
+
+The server would then generate the following SQL query:
+
+-----------------------------------------------------------------------------------------------------
+SELECT * FROM products WHERE name LIKE '%'; DELETE FROM products WHERE 1=1; --%'
+-----------------------------------------------------------------------------------------------------
+
+This query would delete all rows from the "products" table, as in the previous example.
+
+To prevent against SQL injection attacks, it is important to properly validate and sanitize user input,
+and to use prepared statements when interacting with a database. In this case, 
+the server should validate and sanitize the "search" parameter before using it in the SQL query.
+
+The malicious code in this example was included in the query parameter of the request, which is part of the URL.
+Query parameters are often included in the URL after a question mark (?) and are separated by ampersands (&).
+In this case, the "search" parameter was included in the query string of the request:
+
+-----------------------------------------------------------------------------------------------------
+http://example.com/search?search='; DELETE FROM products WHERE 1=1; --
+-----------------------------------------------------------------------------------------------------
+
+Query parameters can also be included in the request body or request headers,
+depending on the type of request and the implementation of the server.
+It is important to properly validate and sanitize all user input, regardless of where it is included in the request.
+
+
+
