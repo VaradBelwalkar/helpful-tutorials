@@ -1,0 +1,110 @@
+import requests
+import pandas
+import scipy
+import numpy
+import sys
+
+print("The very start of the line")
+TRAIN_DATA_URL = "https://storage.googleapis.com/kubric-hiring/linreg_train.csv"
+TEST_DATA_URL = "https://storage.googleapis.com/kubric-hiring/linreg_test.csv"
+
+print("Line before price prediction ")
+def predict_price(area) -> float:
+    """
+    This method must accept as input an array `area` (represents a list of areas sizes in sq feet) and must return the respective predicted prices (price per sq foot) using the linear regression model that you build.
+    
+
+    You can run this program from the command line using `python3 regression.py`.
+    """
+    response = requests.get(TRAIN_DATA_URL)
+    # YOUR IMPLEMENTATION HERE
+    train_areas=numpy.array([float(t) for t in response.text.split('\n')[0][5:].split(',')])
+    train_prices=numpy.array([float(t) for t in response.text.split('\n')[1][6:].split(',')])
+    fit=numpy.polyfit(train_areas,train_prices,1)
+    return ([ fit[0]*x+fit[1] for x in area ])
+ 
+
+if __name__ == "__main__":
+    # DO NOT CHANGE THE FOLLOWING CODE
+    from data import validation_data
+    areas = numpy.array(list(validation_data.keys()))
+    prices = numpy.array(list(validation_data.values()))
+    predicted_prices = predict_price(areas)
+    rmse = numpy.sqrt(numpy.mean((predicted_prices - prices) ** 2))
+    try:
+        assert rmse < 170
+    except AssertionError:
+        print(f"Root mean squared error is too high - {rmse}. Expected it to be under 170")
+        sys.exit(1)
+    print(f"Success. RMSE = {rmse}")
+
+
+
+
+
+
+
+
+***********************************    EXPLAINATION    ***********************************
+
+
+First we collect the testing dataset and store it into a file called data.py, we use to to calculate RMSE, to see the accuracy
+
+Then we call the predict_price(areas) function with "areas" as parameter extracted from data.py
+
+******* INSIDE function prdict_price(areas)
+
+Here, we first get the training data from the URL specified.
+
+Then extract "areas" feature's values from response object into train_areas ( Note that there is only one feature )
+Then extract "prices" feature's values from response object into train_prices ( Here we are predicting a single label )
+
+Then, 
+we are calling the function
+                              numpy.polyfit(train_areas,train_prices,1)
+                              
+Here we are passing a feature values (separate feature vectors but here vector containing single feature) and
+the label values for each feature vector (here vector has single feature)
+
+WHAT DOES THE FUNCTION DOES?
+
+You know linear regression ?
+Here the function deduce a polynomial function of degree 1 (passed as argument) and minimizes the standard deviation to the minimum
+so that the considerd polynomial function can be used as a model
+
+We can then use the polynomial function as MODEL to predict the data, ie.
+To pass a feature value (in this case) and get the predicted value (just putting value of feature (independent) into polynomial function
+to get the value of label (dependent))
+
+
+BUT WHAT DOES THE numpy.polyfit function returns?
+
+it returns a simple array which contains values of the coefficients of the line of regression in the format y = mx + c
+where it returns an array of [m,c]
+so in the above example we get fit = [m,c]
+
+And at last, we predict the values of passed areas and return it as result of the main function
+
+
+************** IN THE MAIN FUNCTION *******************
+
+Here we get the array of predicted values [v1,v2,v3,......,]
+
+Then what we do is compare these values with what we have i.e the actual prices to consider the accuracy of the model
+
+Here, calculate STANDERD DEVIATION for the values
+
+This is the value of how averagely values are separated from the MEAN values
+
+Then we print the STANDERD DEVIATION (Here also referred as ROOT MEAN SQUARED ERROR or RMSE)
+
+
+
+
+
+
+
+
+
+
+
