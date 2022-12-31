@@ -1,0 +1,55 @@
+HTTP downloads like files and so work by,
+
+setting the header "content-type" to generally  "application/octet-stream" 
+so that client browser will download it and then consider its type
+
+This works for small files, but what about big files like ISO files?
+
+Well for that, server sends the file in chunks and to let the client browser know that it is going to transfer the file in chunks,
+the server does the following :
+
+It sets another header called "Transfer-encoding" to a value which is "chunked"
+So that client browser understands that the content is being sent by the server in the form of chunks and should wait until 
+all the chunks arrive 
+
+Also importantly, server also sets header "content-length" to the value which is size of the file sent
+
+
+
+
+large files like ISO images are typically transferred in chunks rather than all at once. 
+When a server receives a request for a large file, it can send the file to the client in smaller chunks rather than sending the entire file at once. 
+This can make the download process more efficient and reduce the load on the server.
+
+The process of transferring a large file in chunks is known as "chunked transfer encoding," and it is supported by HTTP.
+When a server uses chunked transfer encoding to send a file, it sends the file in a series of smaller chunks, 
+each with its own set of headers and a small amount of data.
+
+For example, the server might send a response that looks something like this:
+
+Copy code
+HTTP/1.1 200 OK
+Content-Type: application/octet-stream
+Transfer-Encoding: chunked
+
+4\r\n
+data\r\n
+5\r\n
+chunk\r\n
+0\r\n
+\r\n
+The "Transfer-Encoding: chunked" header indicates that the server is using chunked transfer encoding to send the file. 
+The file is then divided into chunks, each of which is preceded by a line indicating the size of the chunk in bytes (e.g., "4" and "5" in the example above).
+The actual data for each chunk is then sent, followed by a line containing "\r\n" to indicate the end of the chunk. 
+The final chunk is indicated by a size of "0" followed by "\r\n\r\n".
+
+
+
+
+
+
+
+
+
+
+Your browser receives these chunks and assembles them into the complete file. This can allow the browser to start displaying or using the file before the entire file has been received, which can make the download process seem faster to the user.
