@@ -1,1 +1,19 @@
 https://www.techtarget.com/searchsecurity/definition/steganography
+
+Steganography is the practice of concealing a message, image, or file within another message, image, or file. 
+The goal of steganography is to hide the existence of the hidden message or content, 
+so that it is not detected or recognized by anyone other than the intended recipient.
+
+There are several different ways that steganography can be implemented. One common method is to embed the hidden message or content
+within an image or audio file by altering the least significant bits (LSBs) of the file's pixels or samples.
+For example, an image might be modified to contain a hidden message by altering the LSBs of certain pixels in a way that 
+is not noticeable to the human eye but can be detected and interpreted by someone who knows the encoding scheme.
+
+Another method of steganography is to use a cover text or image as a "mask" for the hidden message or content. 
+In this case, the hidden message is encoded as a sequence of characters that are interspersed with the cover text or pixels
+in a way that is not noticeable to the casual observer.
+
+Steganography can be used for a variety of purposes, such as to protect the confidentiality of sensitive information, 
+to hide the true nature of a message or file, or to bypass censorship or content filters. However,
+it is important to note that steganography is not a foolproof method of hiding or protecting information,
+as sophisticated forensic techniques and software can be used to detect and extract hidden content.
