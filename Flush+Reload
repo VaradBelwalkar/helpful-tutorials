@@ -1,0 +1,28 @@
+https://www.youtube.com/watch?v=UmLB1EWelCw
+
+
+
+Here is the brief information ---->
+
+First of all, you need ot understand that most of the system libraries and functions are shared between processes
+So if process A and B, share the same cryptographic algorithm say X, then when this algorithm is in LLC or Last Level Cache,
+Both the processes are going to use the same code to execute their own set of values
+
+This is as the actual code is read only and whatever operation needs to be performed, that is carried out by the processes using their values
+
+So, suppose process A is victim and process B is attacker process
+
+Process B would then constantly apply Flush+Reload phases
+
+After the Flush phase, when Process B tries to reload the same lines for the code, if it happens to be a cache miss, means that in that interval,
+victim process hasn't used the lines in that code,
+but if it happens to be a cache hit, then it means that victim process reloaded those lines as it wanted to execute, 
+And in these lines happen to be executed only when there is 1 in the cryptographic value, so attacker would infer from this that there was indeed 1 that is 
+present in the key
+
+
+
+
+
+
+
