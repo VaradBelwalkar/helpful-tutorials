@@ -1,0 +1,9 @@
+CSRF prevention:
+
+Here server stores the CSRF token in the hidden field of the form (any form which is sensitive) and also stores the CSRF as cookie
+
+Here server transfers this CSRF as cookie in the response, 
+
+
+When user submits the form, the server authenticates the CSRF in the form submitted against the CSRF token in the cookie sent,
+If both are same, server accepts the form else reject it
