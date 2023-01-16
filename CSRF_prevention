@@ -54,7 +54,10 @@ and if it does not find any CSRF token, it rejects the form submission
 
 
 
-
+A general property of web browsers is that they will automatically and invisibly include any cookies (including session cookies and others) used
+by a given domain in any web request sent to that domain. This property is exploited by CSRF attacks. In the event that a user is tricked into
+inadvertently submitting a request through their browser these automatically included cookies will cause the forged request to appear real to the web server
+and it will perform any appropriately requested actions including returning data, manipulating session state, or making changes to the victim's account.
 
 
 
