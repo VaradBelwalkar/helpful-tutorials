@@ -1,0 +1,14 @@
+One of the most useful package in NodeJS is a package called "n" 
+Yes you heard it right it has name "n"
+
+HOW TO INSTALL?
+
+            npm install -g n
+            
+            
+HOW TO USE?
+
+            sudo n <version_to_use>
+            
+            (Here if the proposed version is not present, it will download it and switch to it then)
+            
