@@ -22,3 +22,10 @@ When the client sends a request to the server, it includes the JWT token in the 
 payload, and signature. The server then uses the same secret key that it used to create the token and the algorithm to generate a new signature 
 from the header and payload. If the newly generated signature matches the signature included in the token, it means that the token has not been tampered with 
 and the server can proceed with the request.
+
+
+		// Authorization is one of the headers available in the http request
+	
+//  Authorization -----------> "Bearer <JWT-Token>"
+
+//This indicates the authorization method, which is JWT one
