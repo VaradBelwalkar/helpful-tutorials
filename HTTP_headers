@@ -1,0 +1,27 @@
+		//Content-Type is one of the headers available in http request
+
+//	Content-Type -------> application/json  
+
+//To pass normal json data 
+
+
+//Content-Type --------> application/x-www-form-urlencoded
+
+//To recogise on server side that the request is holding form data (data submitted through form)
+
+//Here the data is submitted as a string(obviously)as it is NOT mentioned like this "application/json"
+//In a URL-encoded query string, the characters in the string are encoded so that they can be safely transmitted over the Internet. 
+//The encoding replaces certain characters with a percent sign followed by a two-digit hexadecimal number. 
+//or example, a space is encoded as "%20" and a plus sign is encoded as "%2B".
+
+//For example, consider an HTML form with two text fields, 
+//"name" and "email", and a submit button. 
+//When the user fills out the form and clicks the submit button, the form data is sent to the server in the body of a POST request. 
+//The "Content-Type" header of the request would be set to "application/x-www-form-urlencoded" and the body of the 
+//request would look something like this:
+
+//name=John+Doe&email=johndoe%40example.com
+
+//This format is useful because it is simple and easy to parse on the server side.
+//However, it has a limitation in that it can only transmit ASCII characters and does not support file uploads. 
+//For more advanced functionality, other media types such as "multipart/form-data" or "application/json" may be used instead.
