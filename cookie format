@@ -1,0 +1,27 @@
+Here According to Go workflow, 
+The cookie is stored in the request or response in the format like 
+
+
+
+cookie header ----> {
+
+"cookieName": http.Cookie
+"anotherCookie" : http.Cookie
+"someAnotherCookie" : http.Cookie
+
+}
+
+So here you can understand that cookie is a header and each entry in that is having a key and value which is of type http.Cookie which contains 
+information about the cookie such as name of the cookie(yes, you heard it right, as you can name it anything in the header but in the object, its value is 
+there)
+To learn more visit, https://go.dev/src/net/http/cookie.go
+
+So when you get the cookie value like
+
+someCookie,err:= r.Cookie("cookieName")
+
+Then you can access the value of that cookie like
+
+        someCookie.Value
+        
+ 
