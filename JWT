@@ -29,3 +29,38 @@ and the server can proceed with the request.
 //  Authorization -----------> "Bearer <JWT-Token>"
 
 //This indicates the authorization method, which is JWT one
+
+
+
+
+
+ After the user login, a user token is generated which will look like this:
+
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ".
+It consists of three parts each separated with a dot(.).First part is header which Base64 encoded. After decoding we will get something like:
+
+{
+  "alg": "HS256", //Algorithm used
+  "typ": "JWT"
+}
+The second part is claims and Base64 encoded. After decoding we will get something like:
+
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
+}
+The third part is the signature and is generated with:
+
+HMACSHA256(
+ base64UrlEncode(header) + "." +
+ base64UrlEncode(payload),
+ *secret base64 encoded*
+)  
+
+
+
+
+
+
+
