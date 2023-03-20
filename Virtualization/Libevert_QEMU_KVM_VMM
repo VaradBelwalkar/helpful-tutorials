@@ -1,0 +1,21 @@
+https://unix.stackexchange.com/questions/502750/what-is-the-relation-between-virtual-machine-manager-and-kvm-qemu
+
+
+
+
+I’m not sure why the Wikipedia article links that particular phrase to the hypervisor article; the description of Virtual Machine Manager on its own web site is more accurate:
+
+The virt-manager application is a desktop user interface for managing virtual machines through libvirt.
+
+VMM isn’t a hypervisor itself, it’s a GUI used to manage virtual machines (and LXC containers). VMM and the VMs it manages run in separate processes; in QEMU’s case, VMM and QEMU communicate using Unix domain sockets (under /var/lib/libvirt/qemu).
+
+VirtualBox is split into multiple components. The GUI you’re presumably used to is one component; VMs can be run separately and managed using other tools, e.g. VBoxManage. The GUI is similar to Virtual Machine Manager, and the VM engine is similar to KVM/QEMU. They also run in separate processes.
+
+As explained here, libvirtd is a dæmon, which might qualify as a server process in your terminology. VMM is a libvirt client. VMM doesn’t communicate directly with QEMU, so it’s not a QEMU client. QEMU runs a virtual machine (i.e. it emulates the underlying hardware and handles communications with the host), libvirtd manages virtual machines (i.e. it manages images, storage, starting and stopping VMs, etc.). KVM provides hardware acceleration on systems which provide hypervisor support in hardware; when run with KVM, QEMU doesn’t need to handle non-virtualisable CPU instructions, the hardware takes care of them.
+
+Communications between the four components you mention are as follows:
+
+QEMU uses KVM via its /dev/kvm device node;
+libvirt connects to QEMU using domain sockets, as described above;
+VMM connects to libvirt also using domain sockets, as far as I can tell.
+The whole libvirt setup is loosely coupled: VMs continue running even if VMM and/or libvirtd are stopped, and libvirtd can reconnect to VMs it manages (if it has an XML descriptor for the VMs).
