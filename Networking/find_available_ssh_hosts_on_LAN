@@ -1,0 +1,5 @@
+nmap -p 22 --open -sV <subnet>
+
+for example, 
+
+nmap -p 22 --open -sV 10.10.0.0/22
