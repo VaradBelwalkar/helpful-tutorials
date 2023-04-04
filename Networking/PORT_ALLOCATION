@@ -1,0 +1,10 @@
+Here understand that,
+When you create any program or when any chrome tab makes an http request, OS first gives it a random port(from non-famous addresses) 
+and then makes the particular request which includes source ip and port given to it as well,
+when response comes, it contains those same ip address and port configurations which is used by OS to send the response to particular process
+
+Here, if a service is listening on some port say X, then abviously that port is not given to any request process
+
+And i think that whenever a request is in progress and we try to launch a service on that same port, OS I think might migrate that request to some another
+port and make note of it
+
