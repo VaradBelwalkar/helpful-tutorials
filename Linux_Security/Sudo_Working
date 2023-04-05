@@ -1,0 +1,9 @@
+so here is what i understood: programs like "ls" and "nano" are user privilleged commands, 
+i.e which user calls them accordingly the processes of those programs will be privlleged hence if any non previlleged user calls nano to 
+open a root privilleged file, nano cannot open it as its process doesn't have required permission, but in case of sudo program, 
+it is the only program which runs in fully privilleged state even if called by any non-previlleged user, 
+so whenever a user calls sudo and passes command that requires root privilleges, as sudo process runs with root privillege, 
+it can work with system to find privillege specification and grant or deny user on basis of entries in the sudoers file
+
+
+
