@@ -40,3 +40,6 @@ Then delete the public key:
         gpg --delete-key <name or email or fingerprint>
         
         
+To import a key (doesn't matter whether it is public key or private key)
+        gpg --import <key_file>
+        
