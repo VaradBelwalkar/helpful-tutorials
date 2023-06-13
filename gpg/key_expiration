@@ -7,7 +7,6 @@ run:
       run expire
            gpg> expire
       and then choose option
-           gpg> 0
       make sure to run save
            gpg> save
            
