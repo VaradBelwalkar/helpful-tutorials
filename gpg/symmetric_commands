@@ -8,3 +8,5 @@ To decrypt simply run, and give passphrase when prompted:
       gpg --decrypt file_to_decrypt
       
 Here gpg will know whether to use symmetric or asymmtric decryption here
+
+Here gpg after taking the passphrase, uses a key-derivation-function(kdf) to derive a key from the passphrase and use that key to encrypt the file
