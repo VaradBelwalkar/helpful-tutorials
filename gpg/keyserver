@@ -1,0 +1,13 @@
+To send the publickey to the key-server:
+          gpg --keyserver <keyserverurl> --send-keys <fingerprint>
+          
+For example:
+          gpg --keyserver hkps://keys.openpgp.org --send-keys <fingerprint>
+          
+          
+Now to search for a key on keyserver: (NOTE: Reflection of uploaded publickey takes some time)
+          gpg --keyserver hkps://keys.openpgp.org --search-keys <username or email>
+          
+Once you find the key on the keyserver, along with the metadata, it will also show the fingerprint for that key,
+So to download that public key:
+          gpg --keyserver hkps://keys.openpgp.org --recv-keys <fingerprint>
