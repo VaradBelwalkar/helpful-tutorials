@@ -11,3 +11,9 @@ Now to search for a key on keyserver: (NOTE: Reflection of uploaded publickey ta
 Once you find the key on the keyserver, along with the metadata, it will also show the fingerprint for that key,
 So to download that public key:
           gpg --keyserver hkps://keys.openpgp.org --recv-keys <fingerprint>
+
+Also other than openpgp,
+
+we have pgp.mit.edu keyserver available
+so you can change above url to,
+                    hkp://pgp.mit.edu
