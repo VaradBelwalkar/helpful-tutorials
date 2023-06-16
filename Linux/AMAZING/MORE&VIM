@@ -1,0 +1,18 @@
+With the more command you can actually access the terminal right when you run it!
+
+when in the more, instead of going down, press !
+
+when after that run /bin/bash 
+
+and voila!, you get the terminal access
+
+
+This i learnt from the bandit overthewire game, where the user's login shell was a more command, so pretty difficult to access the bash,
+this command helped me pretty easily
+
+
+Similarly, when you are using Vim, you can access the terminal by typing :terminal or :term within Vim's command mode.
+
+This opens a terminal window within Vim, allowing you to execute shell commands directly from the editor. 
+
+You can interact with the terminal window, run commands, and view the output while still being in Vim.
