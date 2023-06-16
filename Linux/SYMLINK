@@ -1,0 +1,6 @@
+Suppose a file t1 is symlinked to t2
+
+          t1 ----->  t2
+          
+and when you delete t2, you can no longer cat the t1 file as it says no such file or directory
+but when you create or update the same t1 file again, the t2 file gets automatically created!
