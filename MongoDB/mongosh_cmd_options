@@ -1,0 +1,40 @@
+To connect to mongod :
+To connect to a MongoDB deployment running on localhost with default port 27017, run mongosh without any options:
+              mongosh
+              This is equivalent to the following command:
+              mongosh "mongodb://localhost:27017"
+              or mongosh --port 27017
+
+
+Connect to a Deployment on a Remote Host
+
+              mongosh "mongodb://mongodb0.example.com:28015"
+    or        mongosh --host mongodb0.example.com --port 28015
+
+
+Connect with crendetials with specifying which database you have access:
+
+              mongosh "mongodb://mongodb0.example.com:28015" --username alice --authenticationDatabase admin
+              this will prompt for password, else provide one with --password
+
+When connecting to remote instance,you need secure communication right? so to establish TLS communication do this:
+              mongosh "mongodb://mongodb0.example.com:28015/?tls=true"
+or this:      mongosh "mongodb://mongodb0.example.com:28015" --tls
+
+
+To connect to a specific database "qa" :
+              mongosh "mongodb://localhost:27017/qa"
+
+
+
+To exist from mongosh: 
+
+    Type .exit, exit, or exit().
+
+    Type quit or quit().
+
+    Press Ctrl + D.
+
+    Press Ctrl + C twice.
+
+
