@@ -1,0 +1,8 @@
+MongoDB uses following directories:
+
+          /var/lib/mongodb   :    To store actual databases
+
+          /var/log/mongodb   :    To store logs generated
+
+
+          /etc/mongod.conf   :    Configuration file for mongodb
