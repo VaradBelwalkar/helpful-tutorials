@@ -42,4 +42,6 @@ Then delete the public key:
         
 To import a key (doesn't matter whether it is public key or private key)
         gpg --import <key_file>
-        
+
+To dearmor a .asc key, i.e key in ascii format do this :
+         sudo gpg -o <path_to_outout_key.gpg> .asc_key --dearmor
