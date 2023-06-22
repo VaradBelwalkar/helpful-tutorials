@@ -31,3 +31,8 @@ To return movies from the sample_mflix.movies collection which were released in 
 
 
 
+We can add projection to the find command: 
+        db.inventory.find( { status: "A" }, { item: 1, status: 1, _id: 0 } )
+
+
+
