@@ -11,3 +11,4 @@ Here the normal way to work the mongod service: ( Do sudo systemctl daemon-reloa
             sudo systemctl status mongod
 
 Here the daemon defautly listens on the localhost port 27017
+Here the daemon is set to defaulty only accept connection from localhost and remote connections will be accepted here.
