@@ -1,0 +1,32 @@
+First download their public gpg key from their resource using curl then dearmor it:
+        curl -fsSL https://pgp.mongodb.com/server-6.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg  --dearmor
+        
+        Here we first download the public key in ascii format(.asc) then dearmor it to original .gpg format and store it to the /usr/share/keyrings location 
+
+Now you add the list file:
+        echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+        
+        Here what you do is add the line which apt can understand to the file managed by apt in /etc/apt/sources.list.d/ directory
+        with this, apt will be able to download the packages file from that URL, which contains which packages and their versions available on that URL
+        Then it will use that file to later use it as a lookup from where it identifies whether the package is available there or not
+        Hence it is important to run apt-get update frequently, as running this, apt updates the packages file downloaded from that URL with the latest versions of packages or 
+        removes the packages if they aren't listed anymore
+        
+        As you can see, the signed-by field above is important as it says which public key to use to verify the packages downloaded from this URL
+        
+        So you can infer that APT always does lookup for the packages you say to download in one of hte packages file to first see whether it is available there or not,
+        only when it sees the package listed in any of the packages file, then it goes further to query the actual URL for downloading the package
+        
+        
+then run this so that apt can download packages file which contains info about all packages offered on that URL
+        sudo apt-get update
+        
+
+Now you can successfully run this :
+        sudo apt-get install -y mongodb-org
+        
+        as the package is only listed in the packages list downloaded from mongodb repo, apt will find the package listed in that, then will query the actual URL to download
+        the package, and will verify with the public key mentioned.
+        
+        
+        So this was the installation of MongoDB
