@@ -1,0 +1,7 @@
+https://stackoverflow.com/a/21763915/16383981
+
+
+
+Here, the normal user (without root previllages) has access to limited system calls,
+while the root previllaged user has access to all the available system calls
+It is the responsibility of the kernel to manage and authenticate the credentials
