@@ -1,0 +1,4 @@
+What is Locust?
+
+Locust is a python library which is meant to use for testing the load balancing capabilities of deployments
+Using locust, we define user behaviours and also define how much requests to send simultaneously, so we can test the capabilities of our load balancer
