@@ -1,0 +1,15 @@
+Here the,
+
+                    go mod tidy
+                    
+command updates the go.mod file according to dependancy changes,
+
+i.e suppose a file was previously using package X from github, and you downloaded that, the go.mod will contain X as dependency,
+
+but when you no longer require the package X in that file and if you remove that package import, still that is listed as dependancy in the go.mod file,
+
+So to update the dependancies, we run the above command, so that the X is REMOVED from the dependancies
+
+
+
+
