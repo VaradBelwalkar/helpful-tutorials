@@ -1,0 +1,60 @@
+CSRF prevention:
+
+Consider a scenario :
+A user is logged in website 'A' which is a banking website, means that authentication cookies are stored in the browser
+It means that, whenever a request to the website A is made, the browser automatically adds the authentication cookies(JWT etc) to the request headers
+
+i.e suppose, the user clicks on a button on the same banking website A which submits the following form
+    
+    <form action="https://example.com/transfer-funds" method="POST">
+        <input type="hidden" name="amount" value="1000">
+        <input type="hidden" name="recipient" value="user's Friend">
+        <input type="submit" value="Transfer Funds">
+    </form>
+    
+
+When user clicks on the buttion which triggers the above form, browser sees the request URL and sees if any authentication cookies are there or not for this URL,
+if there are any, browser adds those cookies to the header of the request there by the server getting this request finds legitimate and accepts it
+
+
+
+
+but suppose, the user is also on another malicious website at the same time, what attacker can do is include such same form in its website and and he can let the user 
+click somehow the button which triggers the following form 
+
+      <form action="https://example.com/transfer-funds" method="POST">
+          <input type="hidden" name="amount" value="1000">
+          <input type="hidden" name="recipient" value="attacker">
+          <input type="submit" value="Transfer Funds">
+      </form>
+      
+      
+Here attacker takes advantage of browser's automatic cookie addition to the request, 
+
+So when the user clicks the button which triggers the above malicious form, the form sends request to the server for transfering funds into attacker's account,
+
+AND as per the browser, when browser sees the request to that URL, it sees if any authentication cookies are there or not,
+
+Here the browser finds there are authentication cookies(JWT etc) and adds them to this legitimate looking malicious request, and when
+
+server gets this request, as authentication cookies are there, server finds it legitimate and processes it 
+
+
+
+
+HENCE TO AVOID THIS CSRF TOKENS ARE USED
+
+
+Here the form of the legitimate baking website contains CSRF token 
+
+Here the form of malicious website cannot get this token 
+
+So even when malicous website makes a valid request i.e request with right authentication cookies, server checks for the CSRF token in the form,
+and if it does not find any CSRF token, it rejects the form submission
+
+
+
+A general property of web browsers is that they will automatically and invisibly include any cookies (including session cookies and others) used
+by a given domain in any web request sent to that domain. This property is exploited by CSRF attacks. In the event that a user is tricked into
+inadvertently submitting a request through their browser these automatically included cookies will cause the forged request to appear real to the web server
+and it will perform any appropriately requested actions including returning data, manipulating session state, or making changes to the victim's account.
