@@ -1,3 +1,0 @@
-We flag the cookie as HttpOnly, so that the cookie can only be accessed at the time of request and response, i.e HTTP handling
-Means, any javascript code cannot access the cookie (even thee legitimate code of the same website!)
-This is useful to prevent Cross Site Scripting that exposes Cookies stored by the browser
