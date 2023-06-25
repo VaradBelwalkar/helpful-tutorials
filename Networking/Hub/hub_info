@@ -1,0 +1,14 @@
+In Cisco Packet Tracer, "hub-pt" refers to a hub device simulation. A hub is a simple networking device that operates at the physical layer (Layer 1) of the OSI model.
+  Unlike switches or routers, hubs are not intelligent devices and do not perform any advanced functions such as packet filtering or forwarding based on MAC addresses.
+
+A hub acts as a central connection point for network devices, allowing them to communicate with each other. When a device sends data to the hub, 
+it broadcasts the data to all other devices connected to the hub, regardless of the intended destination. This is often referred to as "flooding" or "broadcasting" behavior.
+  Each device connected to the hub receives the data and checks the destination MAC address to determine if it is the intended recipient. If not, it discards the data.
+
+In Packet Tracer, the "hub-pt" device simulation allows you to simulate the behavior of a physical hub in a network topology.
+  You can connect devices to the hub and observe how data is broadcasted to all connected devices. It is useful for learning the concept of shared media and
+the limitations of a hub-based network, such as collisions and limited bandwidth due to shared resources.
+
+It's important to note that physical hubs have become obsolete in modern networks, as they have been replaced by switches.
+  Switches offer improved performance, efficiency, and better control over network traffic. However, hubs are still used in educational settings and 
+simulation environments like Packet Tracer to help understand basic networking concepts.
