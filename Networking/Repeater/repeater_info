@@ -1,0 +1,13 @@
+In Cisco Packet Tracer, "repeater-pt" refers to a repeater device simulation. A repeater is a networking device that operates at the physical layer (Layer 1) of the OSI model.
+The main function of a repeater is to regenerate and amplify network signals to extend the reach of a network's transmission distance.
+
+When network signals travel through a network medium such as a copper cable or fiber optic cable, they can experience signal degradation and attenuation over long distances.
+A repeater is used to counteract this degradation by receiving the weak or distorted signal, cleaning it up, and retransmitting it at a higher power level. 
+This process allows the signal to travel farther without losing its integrity.
+
+In Packet Tracer, the "repeater-pt" device simulation allows you to include repeaters in your network topology to extend the reach of your network.
+You can connect network segments or devices with weak signals to the repeater, and it will regenerate and amplify the signals to ensure reliable communication.
+
+It's important to note that in modern networks, repeaters have been largely replaced by more advanced devices such as switches and routers. 
+These devices provide not only signal regeneration but also additional networking functionalities. However, understanding the concept of a repeater is still valuable
+in learning about the basics of network signal transmission and extension.
