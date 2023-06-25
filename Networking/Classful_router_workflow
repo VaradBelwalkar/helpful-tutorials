@@ -1,0 +1,11 @@
+what was happening is that when an organization required range of ip addresses, it would request the internet authority and then internet authority would assign 
+the range according to the range, suppose if organization requires only hundreds of ip addresses, the internet authority would give class c address, 
+then what it would do is it would manage wiring between nearest router and the oganization's main router and configure the nearest router to pass on the
+packets for that particular range suppose 194.2.3.0, and as this information is stored in the routing table, other routers in nearby would gather this information
+laterwords through their routing table updation algorithm, and like this all the routers in the world would finally get a path to reach that particular
+router which is going to pass the packet to the organization's router, path means all the routers would be able to determine next hop for the packet to transmit to, 
+in order for it to reach at given location
+
+The protocols were and still used to update routing table dynamically are Border Gateway Protocol (BGP), 
+                                                                          Open Shortest Path First (OSPF),
+                                                                          Routing Information Protocol (RIP)
