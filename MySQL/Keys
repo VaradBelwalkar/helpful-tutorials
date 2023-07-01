@@ -1,0 +1,51 @@
+*****Primary Key:
+
+Definition: A primary key is a minimal set of attributes (columns) that uniquely identifies each record in a table.
+It is a special type of candidate key chosen to uniquely identify records and enforce entity integrity.
+
+Functional Dependency Perspective: In terms of functional dependencies, the primary key is a super key that has the additional property 
+of being irreducible. It means that no proper subset of the primary key can uniquely identify the records.
+
+
+*****Candidate Key:
+
+Definition: A candidate key is a set of attributes that can uniquely identify each record in a table. 
+It is a minimal super key, meaning that no proper subset of the candidate key can uniquely identify the records.
+
+Functional Dependency Perspective: From a functional dependency viewpoint, a candidate key is a super key that does not have any redundant attributes.
+It means that all attributes in the candidate key are necessary to determine the other attributes in the table.
+
+
+*****Super Key:
+
+Definition: A super key is a set of attributes that can uniquely identify each record in a table. 
+It may contain additional attributes that are not strictly necessary for uniqueness.
+
+Functional Dependency Perspective: In the context of functional dependencies, a super key is a set of attributes that can
+determine all the attributes in a table. It can include redundant or unnecessary attributes, i.e., 
+attributes that are not required to determine the other attributes.
+
+
+
+
+
+Here, you can understand like this,
+
+Super keys are just any combition of attributes be it single or multiple that just unique identify the tuple in the table,they may have redudant 
+attributes in them which need not to be there in order to determine other attributes i.e proper subset of it can also determine unique tuple in the
+table
+
+while Candidate keys are those Super keys of which no proper subset can uniquely identify the tuple in the table, i.e they don't have any redudant
+attributes, all attributes in those keys are essential to determine the other attributes.
+
+
+While Primary key is one of chosen Candidate key, it can be any Candidate key, as every Candidate key has Potential to be a Primary key,
+but such a Candidate key is chosen which is minimal or having minimal attributes, while this is not a strict rule.
+
+
+
+
+
+
+
+
