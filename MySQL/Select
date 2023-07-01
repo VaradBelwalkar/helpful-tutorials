@@ -1,56 +1,60 @@
 *****Select all fields from table customers
 
+###################################
 SELECT * FROM customers;
-
+###################################
 
 *****Select Specific Columns from a Table
 
+#####################################
 SELECT name, email FROM customers;
-
+#####################################
 
 *****Alias Columns
 
+########################################################################
 SELECT name AS customer_name, email AS customer_email FROM customers;
-
+########################################################################
 
 *****Select Distinct Values
-
+##########################################
 SELECT DISTINCT country FROM customers; ( here there will not be any duplicate entry for what you chosen, remember for what you chosen 
                                           i.e for only the fields you considered, of course this would not do anything when you choose
                                           all the fields as that would be an entire tuple which will always be unique)
-
+##########################################
 
 
 
 *****Limit the Number of Rows Returned
 
-
+###############################################
 SELECT name, email FROM customers LIMIT 10;    (This is mostly used with the ORDER BY in order to get First X tuples according to sorting)
-
+###############################################
 
 
 
 *****Sort the Result Set
 
-
+######################################################################
 SELECT name, email FROM customers ORDER BY name ASC;    (DESC for descending)
-
+######################################################################
 
 
 *****Filter Rows with WHERE Clause
 
+######################################################################
 SELECT name, email FROM customers WHERE country = 'USA';    (Here understand that the priority of WHERE clause is MAX and thus,  
                                                              the mysql selects only those tuples which satisfy the criteria
                                                              rather than applying filter afterwards)
 (Here the mysql goes tuple by tuple and sees first if the tuple is matching the criteria if given then actually considers the fields to be selected)
-
+######################################################################
 
 
 *****Use Logical Operators in WHERE Clause
 
-
+############################################################################
 SELECT name, email FROM customers WHERE age >= 18 AND city = 'New York';     (Here you can use OR as well and also IN operator)
-
+############################################################################
 
 
 
@@ -58,7 +62,7 @@ SELECT name, email FROM customers WHERE age >= 18 AND city = 'New York';     (He
 
 *****Aggregate Functions (e.g., COUNT, SUM, AVG)
 
-
+######################################################################
 SELECT COUNT(*) FROM customers;
 
 (here COUNT is an aggregate function in SQL, where * defines which columns to choose, abviously, you can give any field name here
@@ -67,9 +71,9 @@ SELECT COUNT(*) FROM customers;
   SELECT * FROM customers  >>>>>>>  COUNT 
 Remember COUNT only counts the tuples i.e number of results
 ) 
+######################################################################
 
-
-
+######################################################################
 SELECT name, COUNT(*) FROM customers;
 (
 Here, mysql starts iterating through the table, when a tuple matches the WHERE criteria if present, then the required field i.e name
@@ -82,11 +86,11 @@ so what mysql does is simply selects the FIRST tuple from the RESULT TABLE and c
 gives us the result as result table with fields name and COUNT(*) or names otherwise
 
 )
+######################################################################
 
 
 
-
-
+#########################################################
 SELECT AVG(age) FROM customers WHERE country = 'USA';
 
 (Here the AVG is again an aggregate function which finds average of given field, here becomes important aspect
@@ -96,9 +100,9 @@ SELECT age FROM customers WHERE country = 'USA'    >>>>>>>>>  AVG
 
 Here the AVG function is getting tuples containing only one field i.e age, so it is easy for it to calculate average and return it
 )
+##########################################################
 
-
-
+#####################################################
 SELECT SUM(quantity) FROM sales;
 
 (Here the SUM is an aggregate just like the AVG but instead of calculating the average it simply sums up the result
@@ -107,7 +111,7 @@ SELECT quantity FROM sales   >>>>>>>  SUM
 
 Here it gets the tuples just containing quantity as the field and then the SUM just sums it up
 )
-
+#######################################################
 
 
 
@@ -115,6 +119,7 @@ Here it gets the tuples just containing quantity as the field and then the SUM j
 
 *****Grouping and Aggregation (e.g., GROUP BY, HAVING)
 
+########################################################################################
 SELECT country, COUNT(*) as customer_count
 FROM customers
 GROUP BY country
@@ -149,7 +154,7 @@ Here you need to use HAVING CLAUSE when you have to filter the result table on t
 
 )
  
-
+########################################################################################
 
 
 
@@ -158,35 +163,38 @@ Here you need to use HAVING CLAUSE when you have to filter the result table on t
 
 *****Subqueries
 
-
+############################################
 SELECT name, email
 FROM customers
 WHERE country IN (SELECT country FROM suppliers WHERE category = 'Electronics');
-
+############################################
 
 
 
 *****SUM up the fields
 
+########################################################
 SELECT column1 + column2 AS total_sum FROM table_name;
-
+########################################################
 
 
 *****SELECT distinct values 
 
+##############################################
 SELECT DISTINCT column_name FROM table_name;
-
+##############################################
 
 
 
 *****LIKE operator
 
+################################################################
 SELECT column1 FROM table_name WHERE column2 LIKE '%pattern%';
-
+################################################################
 
 
 *****MIN MAX aggregators
-
+########################################################################################
 SELECT MIN(column1), MAX(column2) FROM table_name;
 
 (here the workflow is same, what mysql does is makes two field result table here, and then starts iterating through tuples
@@ -195,13 +203,14 @@ i.e MIN(column1) and MAX(column2)
 but when a tuple satisfies criteria, and mysql sees already entered value/s in the result table, it then takes the value/s from the 
 tuple and then compares it with one present in the result table, according to MIN and MAX, it then decides whether to update it or not
 )
-
+########################################################################################
 
 
 *****JOIN
 
+########################################################################################
 SELECT table1.column, table2.column FROM table1 JOIN table2 ON table1.id = table2.id;
-
+########################################################################################
 
 
 
