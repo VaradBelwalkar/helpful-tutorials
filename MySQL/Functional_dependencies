@@ -1,0 +1,50 @@
+
+Anomalies: Insertion, Deletion, Updation
+
+
+
+
+Trivial Functional Dependency:
+A trivial functional dependency is a dependency where the dependent attribute(s) are part of or already determined by the determinant attribute(s).
+In other words, it is a redundant or unnecessary dependency that does not provide any new or useful information.
+
+Example:
+Let's consider a table named "Employees" with the following attributes:
+
+EmployeeID (Primary Key)
+FirstName
+LastName
+Email
+If we have the functional dependency EmployeeID -> EmployeeID, it would be considered trivial. The EmployeeID itself is the determinant 
+and also the dependent attribute. This dependency is redundant and does not provide any new information.
+
+Non-Trivial Functional Dependency:
+A non-trivial functional dependency is a dependency where the dependent attribute(s) are not part of or determined by the determinant attribute(s). 
+It represents a meaningful relationship between attributes and provides valuable information.
+
+
+
+
+Types of Functional Dependencies:
+There are three types of functional dependencies:
+
+a. Full Functional Dependency:
+A functional dependency A -> B is called a full functional dependency if removing any attribute from A would break the dependency. 
+In other words, A is the minimum determinant required to determine B.
+
+b. Partial Functional Dependency:
+A functional dependency A -> B is called a partial functional dependency if removing any attribute from A would still allow the dependency to hold. 
+In this case, A contains redundant attributes that are not necessary to determine B.
+
+c. Transitive Functional Dependency:
+A functional dependency A -> B and B -> C implies a transitive functional dependency A -> C. In other words,
+if the value of attribute A determines the value of attribute B, and the value of attribute B determines the value of attribute C, 
+then the value of attribute A indirectly determines the value of attribute C.
+
+Normalization and Functional Dependencies:
+Functional dependencies play a crucial role in database normalization. By identifying and representing functional dependencies, 
+we can ensure that a database design is free from redundancy and anomalies.
+
+First Normal Form (1NF): In 1NF, each attribute within a table should be atomic (indivisible) and not contain repeating groups.
+Second Normal Form (2NF): In 2NF, every non-key attribute must be functionally dependent on the whole primary key (i.e., no partial dependencies).
+Third Normal Form (3NF): In 3NF, there should be no transitive functional dependencies (i.e., no non-key attributes depend on other non-key attributes).
