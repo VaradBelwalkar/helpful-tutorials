@@ -51,7 +51,7 @@ OPEN cursor_name;
 
 
 ********************Consider the following CURSOR***********************
-
+##########################################################################
 CREATE PROCEDURE GetEmployeeNames
 AS
   DECLARE
@@ -74,7 +74,7 @@ AS
     -- Close the cursor
     CLOSE cursor_employee;
   END;
-
+##########################################################################
 
 
 
