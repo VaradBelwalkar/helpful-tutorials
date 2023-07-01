@@ -1,6 +1,25 @@
 In databases, a cursor is a database object used to retrieve and manipulate rows from a result set or query. 
 Cursors provide a way to navigate through the records returned by a SELECT statement or perform row-level operations on a result set
 
+*********************************************************************************************************************************
+Cursor is not something like triggers and procedures in mysql,
+Triggers and procedures are independent SQL units which run autonomously (although procedure needs to be called, but you got it)
+But, Cursor are not something like that, what cursors do is they help you to ITERATE over a RESULT TABLE,
+Yes, that is only there job, and you have to do all the aspects to use it i.e fetching the value in a variable, then using it,
+So, CURSORS are helping units that help you to iterate over a result, nothing else,
+So that is the REASON, CURSORS cannot be created, but only can bed DECLARED INSIDE a PROCEDURE OR A TRIGGER to HELP 
+the WORKFLOW, and that is the reason they lie only in MEMORY, and not on the secondary storage i.e not stored.
+
+FOR EXAMPLE,
+
+You can consider a BASH script as a TRIGGER which is going to run on specific interval, while the LOOP
+inside it is going to run only when the BASH IS GOING TO RUN, and it makes no sense to use the loop outside the script right?
+
+Similar goes with procedures as you can imagine them to be functions in programming languages, and loops are being used in 
+that
+
+*********************************************************************************************************************************
+
 ****************MOST IMPORTANT********************
 You can only declare and use the CURSORS in the procedure only,
 as you use DECLARE keyword to declare the cursor, and that KEYWORD
