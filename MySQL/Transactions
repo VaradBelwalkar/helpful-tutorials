@@ -18,33 +18,43 @@ So, what to do?
 
 Well you might think that see those logs on the database and revert those, well transactions exactly do that, 
 When, you run 
+
+############################################
 START TRANSACTION;
+############################################
 
 The individual transction starts, and after this, whatever commands i.e SQL queries you execute, they are safe, 
 i.e what you just need to do is after running those commands that modify the database, run 
+
+############################################
 COMMIT;
+############################################
+
 command and that ensures that the transaction has happened successfully, 
 well before running this, if the machine fails or database fails,
 
 
 You simply need to write 
+
+############################################
 ROLLBACK;
+############################################
 
 
 after the database starts, and the database sees any incomplete transactions, i.e transactions without commit, 
 
 then it rollbacks those updates to the database according to the logs stored
 
-*******
+############
 but if you run ROLLBACK after commit has been done, it doesn't do anything
 So, a ROLLBACK is always run after the machine hosting database restarts from failure or database itself starts after failure
 This ensures any incomplete transactions are rollbacked and thus maintaining the integrity of the database
-*******
+############
 
 
 
 
-**************************************************************************
+########################################################################################
 START TRANSACTION;  -- Start the transaction
 
 -- Step 1: Deduct the ordered quantity from the inventory
@@ -57,7 +67,7 @@ INSERT INTO orders (order_id, customer_id, order_status)
 VALUES (<order_id>, <customer_id>, <order_status>);
 
 COMMIT;  -- Commit the transaction, making the changes permanent
-**************************************************************************
+########################################################################################
 
 Here you can see we are having two steps in between the transaction, and if commit is not run, you can run rollback to redo the changes made.
 
