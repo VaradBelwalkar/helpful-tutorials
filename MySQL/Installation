@@ -12,7 +12,10 @@ don't worry this all is taken care by that single .deb file
 When you go to that oracle website if you have account then fine otherwise need to creat one 
 after that you can download that tiny 17k .deb file and then do the following:
 
+#############################
 sudo dpkg -i <path to file>
+#############################
+
 once that is done, it will prompt you for selecting packages go with default if you don't want anything else,
 then once done, it will automatically configure the things i told above i.e mysql.list file and the GPG key 
 
