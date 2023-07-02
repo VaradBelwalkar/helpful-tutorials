@@ -1,0 +1,41 @@
+#########################
+main()
+{
+     if(fork()>0)
+sleep(100);
+}
+#########################
+
+fork() System Call:
+The fork() system call is used to create a new process by duplicating the existing process. After the fork() call, 
+there are two identical processes running in parallel, referred to as the parent process and the child process. 
+The fork() call returns different values for each process: a non-zero value (the process ID of the child) in the parent process, 
+and 0 in the child process.
+
+
+if(fork() > 0):
+In the if statement condition, fork() is called. If the return value of fork() is greater than 0, 
+it means the current process is the parent process (as it received the child process ID), 
+and the condition evaluates to true. The parent process then executes the code within the if block.
+
+sleep(100):
+Within the if block, the parent process calls the sleep() function, which causes it to sleep or pause for 100 seconds. 
+During this time, the parent process will be in a sleeping state, not consuming CPU resources.
+
+
+Now let's discuss the flow of execution:
+
+The program starts executing from the main() function.
+The fork() system call is invoked, creating a new child process. The child process is an identical copy of the parent process, including the code,
+data, and stack.
+After the fork() call, both the parent and child processes continue execution from the same point. However, they have different return values
+from the fork() call.
+In the parent process, the fork() condition evaluates to true (as the return value is greater than 0). It enters the if block.
+The parent process calls the sleep(100) function, causing it to sleep for 100 seconds.
+Meanwhile, the child process does not enter the if block and continues executing the next line of code after the if statement 
+(which is the end of the program).
+The parent process remains in the sleeping state for 100 seconds. After that, it resumes execution and exits.
+
+
+
+
