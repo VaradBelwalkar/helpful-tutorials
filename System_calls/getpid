@@ -1,0 +1,33 @@
+The getpid() function is a system call in Unix-like operating systems (including Linux) that is used to retrieve the process ID (PID)
+of the current running process. The PID is a unique identifier assigned to each process by the operating system.
+
+The getpid() function does not take any arguments and returns an integer value, which represents the PID of the calling process. 
+Here's a brief explanation of how it works:
+
+When you call the getpid() function in your program, the system call is made to the operating system kernel.
+The kernel, being responsible for process management, has a data structure called the "process control block" (PCB) for each process. 
+The PCB contains various pieces of information about the process, including its PID.
+The kernel retrieves the PCB of the current process and extracts the PID value from it.
+
+Finally, the kernel returns the PID value to the calling program, and it can be stored in a variable or used for further processing.
+Here's a simple example to demonstrate the usage of getpid() in a C program:
+
+#########################################################################################
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+    pid_t pid = getpid();  // Call getpid() to retrieve the process ID
+
+    printf("The process ID is: %d\n", pid);
+
+    return 0;
+}
+#########################################################################################
+
+
+In this example, the getpid() function is called within the main() function to obtain the PID of the current process. 
+The retrieved PID is then printed using printf().
+
+
+
