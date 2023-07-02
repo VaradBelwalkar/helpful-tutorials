@@ -1,0 +1,27 @@
+The ioctl() function, short for "input-output control," is a system call available in Unix-like operating systems, including Linux. 
+It is a versatile and generic interface used to control and configure various characteristics of devices, including terminals, files, sockets,
+and other special devices.
+
+The ioctl() function allows applications to send control commands to a device driver or underlying subsystem, providing a means to
+manipulate and query device-specific settings or behaviors. It serves as a mechanism for interacting with devices beyond the basic 
+read and write operations.
+
+The ioctl() function has the following syntax:
+
+########################################################
+int ioctl(int fd, unsigned long request, ...);
+########################################################
+
+fd: The file descriptor associated with the device or object on which the operation is to be performed.
+request: An unsigned long value that specifies the specific operation or control command to be executed.
+...: Optional additional arguments that depend on the specific request being made.
+The ioctl() function takes a file descriptor (fd) that represents the device or object on which the control operation is to be performed. 
+The request argument is an unsigned long value that identifies the specific control command to be executed. 
+The interpretation of the request value is specific to the device or subsystem being accessed.
+
+The optional additional arguments (...) are used to pass or receive data associated with the control command. 
+The exact structure and content of these arguments depend on the specific request being made. It is common to pass pointers to data 
+structures as arguments to provide input or retrieve output from the control operation.
+
+The return value of ioctl() is an integer that indicates the success or failure of the operation. A value of -1 indicates an error, 
+and the specific error code can be obtained by examining the errno variable.
