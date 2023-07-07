@@ -8,11 +8,11 @@ Enabling or disabling an interface:
 
 Assigning an IP address to an interface:
 
-          ip address add <ip_address>/<subnet_mask> dev <interface>
+          ip address add <ip_address>/<net_mask> dev <interface>
 
 Removing an IP address from an interface:
 
-          ip address del <ip_address>/<subnet_mask> dev <interface>
+          ip address del <ip_address>/<net_mask> dev <interface>
 
 Setting the MAC address of an interface:
 
