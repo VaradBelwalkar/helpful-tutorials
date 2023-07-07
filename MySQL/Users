@@ -42,6 +42,13 @@ GRANT ALL PRIVILEGES ON mydatabase.* TO 'john'@'localhost';
 Here, the user john, gets access to the entire database mydatabase as the previleges it gets are ALL,
 
 
+******Grant select and insert privilege to the user
+
+###############################################################
+GRANT SELECT, INSERT ON mydatabase.* TO 'myuser'@'localhost';
+###############################################################
+
+
 
 *****See what privileges are assigned to a user
 
