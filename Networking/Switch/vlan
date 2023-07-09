@@ -1,0 +1,13 @@
+Vlan as the name says, are virtual LAN network which appears to be LAN but are not exactly,
+
+What do you mean by a LAN, well just a group of computers in the same network typically connected to each other using Switch.
+Well yere, all the devices which talk about still reside in the same network as VLAN is NOT a concept about inter-networking but a concept of 
+having  manageable cluster of devices through different switches
+
+Consider two switches A and B which are hosting suppose 10-10 devices each, and here, as you know, each device has broadcast domain of 19, 
+i.e when a computer broadcasts a packet, it is going to other 19 devices, and if one of the connected computer here is a public computer, 
+  it can create unnecessary traffic in the network if it just has to connect to one server in the LAN to get info.
+
+So here, we create VLANs  which are nothing but a group of computers some from first switch and others from another switch, so here, the computers which
+are part of this VLAN cannot communicate to the other computers even if they are nearby or connected to the same switch
+  
