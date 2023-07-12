@@ -1,0 +1,54 @@
+OSPF stands for Open Shortest Path First protocol
+
+It is an Interior Gateway Protocol (IGP) which is used to exchange routing information inside the AS (autonomous system)
+
+Here, the routers inside the autonomous system exchange ther routing information with this OSPF protocol,
+But wait, you might be thinking what is the need of such protocol here, why we can't just configure the routers
+directly so that they point to the appropriate next hop internal router or to the end device,
+
+The answer is yes, we can indeed configure them manually, but only if your company has few networks configured,
+i.e suppose you company has only bought ip network 198.168.2.0/24, which is the minimum offered by the RIR
+
+So here, you would only typically require only one router in your company to connect to the ISP router to be able
+to connect to the internet, here, you can easiy configure the router to do subnetting if required using additional
+routers and then configure
+
+the default route
+
+to the ISP's router, and tell the ISP to include the entry for this network i.e 198.168.2.0/24, so when the ISP
+adds the entry, the BGP protocol running on it will forward the routing information to the neighbour routers and thus
+it will reach to the entire internet.
+
+
+Fine, but suppose,
+
+
+your company has bought multiple ip networks
+
+198.168.4.0/24
+198.168.5.0/24
+198.168.6.0/24
+12.10.0.0/16
+145.0.0.0/8
+
+
+here, of course you need to manage the networking on the routers which are actually conncting to the networks, and 
+there are other routers which are going to get that information to route the packets to it, and here, you cannot simply 
+tell the ISP to update this and this and this, and suppose you add a network afterwards there also you need to tell
+ISP to do the updation of the new ip network or ip address, so instead of this, you run the OSPF inside this network
+on the routers, and on the company's edge router, you run iBGP to be able to share the routing table information 
+with the ISP's router, then the ISP's router is then going to further forward the routing info to other routers and
+so on.
+
+
+
+
+
+
+
+
+
+
+
+
+
