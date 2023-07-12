@@ -45,11 +45,29 @@ Here, The UDP layer consists of source port as 68 always and dest port as 67 alw
 Then the DHCP protocol contains lots of fields which you can see by visiting :  https://www.cloudshark.org/captures/0009d5398f37
 
 
+
+Here understand that the DORA messages are all broadcast :
+Because the frame gets created using only ARP table and the entry in the ARP table are only considered, so h+ere, as the device is newly joined, there is no ARP entry over there,
+so all are broadcast.
+
+
+
 here the discover message is consumed by the DHCP server, and then sends an offer message with a reserved ip address from the ip address pool available
 
-Here, when the client or the requester gets the offer message as it is unicast, it has options to accept given ip address or not, if it accepts, 
+Here, when the client or the requester gets the offer message where the offer message is again the broadcast one, it has options to accept given ip address or not, if it accepts, 
 
-it then sends the the request message that it wants the given or offered ip address, where the request message is again the 
+it then sends the the request message that it wants the given or offered ip address, where the request message is again the broadcast request, the DHCP server gets the request message
+and then replies with a Ack message which contains the allocated ip address and some other useful information which is critical such as gateway ip address, subnet mask of the network,
+ip lease time, renewal time etc.
+
+The computer or pc then updates the information and then is able to communicate in the network.
+
+The computer or pc however needs to update the lease time after specific interval
+
+Here when the pc changes or switches its subnet, how does it come to know that it needs the DORA sequence again?
+
+
+
 
 
 
