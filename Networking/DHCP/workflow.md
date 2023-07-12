@@ -42,7 +42,14 @@ Here understand that the protocol is Application layer protocol, and it uses UDP
 
 Here, The UDP layer consists of source port as 68 always and dest port as 67 always, yes always it is
 
-Then the DHCP protocol contains fields such as
+Then the DHCP protocol contains lots of fields which you can see by visiting :  https://www.cloudshark.org/captures/0009d5398f37
+
+
+here the discover message is consumed by the DHCP server, and then sends an offer message with a reserved ip address from the ip address pool available
+
+Here, when the client or the requester gets the offer message as it is unicast, it has options to accept given ip address or not, if it accepts, 
+
+it then sends the the request message that it wants the given or offered ip address, where the request message is again the 
 
 
 
