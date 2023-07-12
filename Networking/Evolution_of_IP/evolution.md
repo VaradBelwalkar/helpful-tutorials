@@ -1986,8 +1986,47 @@ So how do we find out to which network does the dest IP from the incoming packet
 And that is why the only way to find out which network it belongs to is to use longest prefix match rule  
 
   
+Lets revise the internal network working again to summerize the workflow,
 
-  
+You know that whenever a pc wants to communicate to a device it needs its MAC address to communicate right,
+
+Here, suppose a pc in the networrk 10.10.4.0/24 with ip 10.10.4.12/24 wants to send the packet to the device with ip 10.10.4.20/24,
+
+Whenever pc wants to send the packet to a ip, it first checks wether that ip lies in its network or not, as here, the pc understands that the dest ip lies in its network 
+
+itself right, so what just pc does, it makes ARP request if it doesn't have the MAC address corresponding to that ip, then gets the MAC address from ARP table then 
+simply forwards the packet to that pc, so here, the source ip is itself, and the dest ip is of that pc which is intended recipent, while the source MAC address is iteself,
+and dest MAC is of that intended recipent
+
+BUT, when pc recognises that the dest ip is not in its network, it says it is the responsibility of the router or gateway to forward the packet to the right destination,
+
+then what pc does, it simply tries to find the gateway MAC address with its ip address, as pc has nothing to do with the gateway's ip address, so what pc does is simply 
+creates packet which contains its ip as source ip, then dest ip, then its MAC address as source MAC, and MAC of router or gateway as dest MAC, and thus it reaches the gateway 
+or router you may say.
+
+the router then either finds its default route if it is connected to the ISP router, then it will forward it to the ISP router, then ISP router will have mostly BGP table which is 
+routing table with BGP protocol, and then forwards.
+
+
+Here, for finding whether the dest IP is in the network or not, the PC must need the network's net-mask or subnet-mask to be able to determine that
+
+net-mask is when there is no subnetting,
+and subnet-mask is where subnetting is done
+So pc needs to get configured with this, so most of the times the pc configuration will include subnet-mask and not net-mask, as net-mask is mostly used in core/provider and 
+provider edge routers to determine the network
+
+The DHCP protocol ensures that the pc will get all the required values i.e gateway ip, subnet-mask etc.
+
+
+
+
+
+
+
+
+
+
+
 
  
 
