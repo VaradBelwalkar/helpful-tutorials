@@ -1,0 +1,7 @@
+go to /etc/sysctl.conf
+
+and uncomment the following line:
+
+############################
+net.ipv4.ip_forward=1
+############################
