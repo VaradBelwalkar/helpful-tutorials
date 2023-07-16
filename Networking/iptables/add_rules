@@ -1,20 +1,4 @@
 
-List rules in the default filter table:
-
-#####################################################################################################################################
-iptables -t filter -L --line-numbers
-
-iptables -t nat -L --line-numbers
-
-iptables -t nat -L -n --line-numbers
-
--n to avoid reverse DNS lookup done by iptables trying to be helpful by providing domain names for ip addresses in the tables
-
-######################################################################################################################################
-
-
-
-
 you’ve noticed the IP 59.45.175.62 continuously trying to attack your server, and you’d like to block it.
 We need to simply block all incoming packets from this IP. So, we need to add this rule to the INPUT chain of the filter table.
 You can do so with:
