@@ -1,0 +1,66 @@
+If you’ve tried blocking certain IPs on the INPUT chain, you might have noticed an interesting caveat — you can’t access the services hosted on those IPs either! You might think that rules in the INPUT chain are somehow affecting traffic on the OUTPUT chain, but that isn’t the case. 
+  The packets from your system do reach the server. However, the packets that the server sends to your system get rejected. 
+  
+
+What we really need here is a way to tell iptables to not touch packets that are part of an existing connection. 
+Fortunately, iptables is a stateful firewall, and it provides a connection tracking module named “conntrack” for this purpose. 
+Connections tracked by this module will be in one of the following states:
+
+NEW: This state represents the very first packet of a connection.
+
+  
+ESTABLISHED: This state is used for packets that are part of an existing connection. For a connection to be in this state,
+             it should have received a reply from the other host.
+
+  
+RELATED: This state is used for connections that are related to another ESTABLISHED connection.
+         An example of this is a FTP data connection — they’re “related” to the already “established” control connection.
+
+  
+INVALID: This state means the packet doesn’t have a proper state. This may be due to several reasons, 
+         such as the system running out of memory or due to some types of ICMP traffic.
+
+  
+UNTRACKED: Any packets exempted from connection tracking in the raw table with the NOTRACK target end up in this state.
+           DNAT: This is a virtual state used to represent packets whose destination address was changed by rules in the nat table.
+           SNAT: Like DNAT, this state represents packets whose source address was changed.
+
+
+Thus, you need to place a rule like the one below, usually at the very top. (If this isn’t the first rule, use -I to place it at the top.) 
+The --ctstate switch sets the states. On some older kernels, this module is named state and the switch is named --state instead of --ctstate.
+
+
+
+############################################################################
+iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+############################################################################
+
+
+
+In addition, it’s generally a good idea to drop any packets in INVALID state. You can place it just below the position where
+you placed the above rule.
+
+
+###########################################################
+iptables -A INPUT -m conntrack --ctstate INVALID -j DROP
+###########################################################
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
