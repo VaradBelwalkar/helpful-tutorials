@@ -1,0 +1,72 @@
+You might be knowing the protocols such as stop and wait, stop and wait ARQ,
+right, how do they work?
+stop and wait simply assumes that the medium between two connecting devices is noiseless which means that two computers will always get what has been
+sent by the other, always.
+But this is theoretical right, as in practical it is impossible to have such thing
+but what does it say?
+when you send a frame, you requires an ack from the receiver to be able to send next frame,
+here no numbers or sequence numbers or anything required because you are working per frame basis so you know whatever the ack is coming,
+is for the same frame transmitted earlier.
+
+
+Later we have stop and wait ARQ,
+Which sets a timer just after sending the frame, remember just after sending the frame, 
+and before that interval if the receiver gives ack, then it moves to next, else if the ack is delayed or not received it retransmitts
+but suppose it is delayed and just after retrasmitting it got it, then it moves to next or not?
+here comes the sequence number as it is must here,
+you can think of it as if the gets the delayed ack, it might consider it that packet has been received and move to sending next frame
+and suppose the ack for the previous retrasmission comes from the receiver as there is nothing associated with it that can identify that it is for 
+previous one, the sender will assume that recent frame is also sent despite it is possible that it might get lost somewhere
+so sequence number come into play here.
+so if we send  1 get 2
+         send  2 don't get before time interval, resend, after that we get 3 fine, send 3 and immediatly get 2 fore resent, ignore that and wait for     
+           4 wait until getting 4
+like this
+
+
+
+
+Well this works well, but here we need to do round trip for each successful packet to be sent right?
+which seems tedious so why not send multiple packets the same time and wait for ack for each?
+
+There are two sliding window protocols:
+1. go back N ARQ
+2. Selective repeat ARQ
+
+Currently we use selective repeat ARQ with Selective ACK in the tcp mechanism
+but lets understand this two first
+
+1. go back N ARQ
+
+Here what happens is when the window size is suppose 10 and the server sends simultaneously all 10 packets right, 
+and when it receives ack for 1st packet, it slides the window and sends next i.e 11th, when received 2nd ack sends 12th by sliding
+when a ack is not received it sends all the packets from the current window and then waits for the reply
+here, the receiver then replies with the ack for the packets
+here N means the window size.
+
+
+2. selective repeat ARQ 
+
+It works same as go back N ARQ, but here, rather than sending entire window, it only sends the packet for which ack is not received yet and waits 
+for the ack
+
+
+
+
+most important
+3. selective repeat with selective ack
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
