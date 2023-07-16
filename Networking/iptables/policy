@@ -1,0 +1,24 @@
+Previously, we’ve explained the concept of a default policy. By default, the default chains have a default policy of accepting all traffic.
+This is also something that you can see in the list of rules
+
+
+You can change the default policy with the -P switch. Perhaps you’re configuring iptables for your home computer, 
+and you don’t want any local programs to receive inbound connections.
+Once you’ve set iptables to accept packets from related and established connections, you can switch the INPUT chain’s policy to DROP with:
+
+
+#############################
+iptables -P INPUT DROP
+#############################
+
+Keep in mind that you should first accept packets from established and related connections before using this rule! 
+If you don’t, you’ll find out that you can’t use any internet based applications, 
+becuase the responses coming in through the INPUT chain will be dropped.
+
+
+
+
+
+
+
+
