@@ -46,6 +46,14 @@ ip addr add 192.168.1.1/24 dev eth0
 ###########################################
 
 
+Set default route
+
+################################################################
+sudo ip route add default via <gateway_ip_address>
+################################################################
+
+
+
 
 Set the interface in the promisc mode or not
 
