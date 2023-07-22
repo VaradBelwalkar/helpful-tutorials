@@ -2020,6 +2020,12 @@ The DHCP protocol ensures that the pc will get all the required values i.e gatew
 
 
 
+The typical broadband connections with some customers:
+
+
+![Screenshot_2023-07-22_11_57_20](https://github.com/VaradBelwalkar/helpful-tutorials/assets/86964576/35a45728-09ad-4140-a8ce-835f9d31ed87)
+
+
 
 
 
