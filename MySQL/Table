@@ -28,7 +28,7 @@ MODIFY COLUMN email VARCHAR(150);
 
 ############################################
 ALTER TABLE customers
-CHANGE COLUMN old_name TO  new_name;
+CHANGE COLUMN old_name  new_name  data_type;
 ############################################
 
 
