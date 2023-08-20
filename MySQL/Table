@@ -24,6 +24,13 @@ ALTER TABLE customers
 MODIFY COLUMN email VARCHAR(150);
 ############################################
 
+*****Alter table - Rename Column
+
+############################################
+ALTER TABLE customers
+CHANGE COLUMN old_name TO  new_name;
+############################################
+
 
 *****Alter table - drop column
 
