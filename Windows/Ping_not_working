@@ -1,0 +1,3 @@
+For me ping to windows wasn't working even when i setup my pc to be discoverable on private as well as public network
+
+Later i found out that my McAfee firewall was blocking the ping requests and wasn'y responding, so disabled it temporary and it worked!
