@@ -1,0 +1,9 @@
+$PortNumber = 9000
+$Connection = Get-NetTCPConnection | Where-Object { $_.LocalPort -eq $PortNumber }
+
+if ($Connection) {
+    $Process = Get-Process -Id $Connection.OwningProcess
+    Write-Host "Port $PortNumber is in use by process $($Process.ProcessName) (PID: $($Process.Id))"
+} else {
+    Write-Host "Port $PortNumber is not in use."
+}
