@@ -1,0 +1,19 @@
+Most oftenly, when installed FreeBSD, you might notice resolution set to 1024*768 or something, and there is no option to change it, 
+well, i have solution for AMD cpus, and you might need to follow similar steps for Intel with a bit of googling, 
+  so here are those steps:
+
+step 1:
+pkg install drm-kmod
+
+step 2:
+add all users to video group
+
+step 3: 
+configue xorg to work with that driver,
+nano /usr/local/etc/X11/xorg.conf.d/amd-driver.conf
+
+Section "Device"
+    Identifier "Card0"
+    Driver     "amdgpu"
+    # BusID    "PCI:6:0:0"
+EndSection
