@@ -8,6 +8,9 @@ pkg install drm-kmod
 step 2:
 add all users to video group
 
+step 4:
+echo kld_list="amdgpu"
+
 step 3: 
 configue xorg to work with that driver,
 nano /usr/local/etc/X11/xorg.conf.d/amd-driver.conf
