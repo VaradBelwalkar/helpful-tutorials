@@ -2,9 +2,13 @@ Install sosumi snap package in GNU linux to install macOS on qemu VM
 
 Follow the steps, and you can refer online youtube videos to fully install the OS
 
+Sosumi works perfectly on my machine (Ryzen 5600h)
+
+The only problem with this is some of the apps from app store aren't available for catalina :(
+
 To install later versions of macOS especially ventura, you might need to visit: https://github.com/kholia/OSX-KVM
 
-I haven't personally tried yet, but surely update here if it works successfully on my Ryzen(5600h) machine. '
+I haven't personally tried yet, but surely update here if it works successfully on my machine. :)
 
 
 
