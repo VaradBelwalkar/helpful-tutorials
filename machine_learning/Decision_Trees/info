@@ -1,0 +1,13 @@
+In decision trees,
+
+we have to find whether the split is pure or impure,
+
+To check it, we either use entropy or gini impurity, and find out whether our split is impure or not, 
+and this info is used to find whether to further split the node into multiple based on some other feature.
+
+
+
+To find starting Root Node/feature or next best node/feature to start with,
+We need to calculate information gain,which tells us that how much information we can gain from that feature, and of course,
+the maximum one will take first priority, and so on.
+
