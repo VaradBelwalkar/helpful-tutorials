@@ -1,0 +1,15 @@
+Random Forest comes under the bagging, which is one of the ensamble techniques in machine learning
+
+in Decision trees, we only have a single decision tree, which we fit,and predict on that basis,
+
+
+Whereas in the bagging, we take number of different models, and feed them with speicific number of rows of the dataset with all or some features,
+and then using simple most-common output, we predict the output,
+
+
+The Random Forest specialises this more and restricts the models being used only are decision trees, and nothing else, and might restrict features per 
+model.
+Here, rows and features can repeat in models and so.
+
+Here, as lots of models being used, and all the models are nothing but decision trees, hence the name Random Forest.
+and the term random, means that the number of rows and selecting features to feed to a particular model or decision tree, entirely depends on analysis and trial and error, no fixed criterion is there.
