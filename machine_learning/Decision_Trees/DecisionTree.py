@@ -64,7 +64,7 @@ class DecisionTree:
 
         return split_idx, split_threshold
 
-
+#Finding out information gain for features
     def _information_gain(self, y, X_column, threshold):
         # parent entropy
         parent_entropy = self._entropy(y)
@@ -90,12 +90,14 @@ class DecisionTree:
         right_idxs = np.argwhere(X_column > split_thresh).flatten()
         return left_idxs, right_idxs
 
+#Finding entropy to check whether split if pure or impure
     def _entropy(self, y):
         hist = np.bincount(y)
         ps = hist / len(y)
         return -np.sum([p * np.log(p) for p in ps if p>0])
 
 
+#For finding most common label for the given feature vector
     def _most_common_label(self, y):
         counter = Counter(y)
         value = counter.most_common(1)[0][0]
