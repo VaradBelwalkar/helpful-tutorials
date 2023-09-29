@@ -1,1 +1,30 @@
-placeholder
+Neural Network, is nothing but a model that mimics the human brain, and more specifically, mimics neurons in the brain
+
+In the neural network, there is input layer, multiple or no hidden layers, and output layer.
+
+Suppose there are 4 neurons in layer x and next layer has 5 neurons, here each neuron is connected to every other neuron in next layer,
+making total 20 connections here itself,
+
+
+and also, each connection is associated with weight and a bias with it.
+
+We require the bias as the model don't predict somevalue if all the weights are zero, and possibly making it into loop somewhere
+
+So, initially we simply predict the value for some feature vector which is obviously be wrong most of the times,
+
+this is called forward propagation.
+
+We propagate in the forward direction in the neural network, compute output based on weights and biases, and provide output.
+
+After we get output, we then make use of loss function to determine what is the loss and then do backward propagation to update the 
+weights and biases on that basis.
+
+
+The functions used to update the weights and biases in the backward propagation are called as optimizers.
+
+
+
+
+
+
+
