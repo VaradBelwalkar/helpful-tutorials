@@ -22,9 +22,6 @@ weights and biases on that basis.
 
 The functions used to update the weights and biases in the backward propagation are called as optimizers.
 
-
-
-
-
+This workflow remains same whether it is ANN, CNN, etc. 
 
 
