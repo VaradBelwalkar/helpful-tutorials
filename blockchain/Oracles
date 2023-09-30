@@ -1,0 +1,11 @@
+The oracle network provided by the chainlink gives us the way to load real world data into the blockchain as blockchain nodes are isolated and do not interact with 
+real world directly
+
+
+The oracle network is itlself a decentralised network, which loads off-chain real world data, and periodically updates the data on the blockchain networks,
+be it mainnet, testnets like sepolia, meaning that the oracles periodically create new transactions which update these contracts deployed on various chains,
+
+so when you go to their documentation, you can see you get different contract addresses for same contract on different chains.
+
+So, you simply get the interface in your solidity code, implement it using this address, removing the need for ABI, and simply call functions in this contract and get 
+updated info.
