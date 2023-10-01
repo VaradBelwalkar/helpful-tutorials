@@ -1,1 +1,13 @@
 https://www.freecodecamp.org/news/learn-solidity-handbook/
+
+Confusion: How does state of contract is maintained?
+
+
+Normally, when you run a simple program in suppose python, it runs and works with instantaneous variables at that moment and uses the default values available at that 
+moment
+
+But, here in contract, when you call a function which changes the value of suppose a variable, next time you get the value of variable, it is updated one,
+
+So, does EVM change the contract and update the variable and redeploy it?
+
+Well, the architecture and workflow of EVM is kinda complicated, and exactly how does it work, is under black box :)
