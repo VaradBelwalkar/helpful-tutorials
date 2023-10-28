@@ -1,0 +1,17 @@
+The dnsmasq is a daemon in the linux which is going to listen on the port 53, as run as a dns server, and resolves the domain names to ip addresses.
+
+This dnsmasq gets the domain-name to ip mapping from the /etc/dnsmasq.conf file, and then accordingly gives results
+
+Now, it is clear about dnsmasq.
+
+
+Now, we move towards the configuring our machines to be able to request to the right dns server
+
+Normally, when you connect your laptop to a private network in your organization, the organization has already the dns server configured and when you 
+get the ip address using the DHCP DORA process, you also get dns server info from it.
+
+So, your system simply updates the /etc/resolv.conf file with the ip address of the dns server.
+
+So, whenever your system needs to resolve a domain name, it simply makes dns resolve request to the first dns server listed in the /etc/resolv.conf
+file, 
+and if it didn't get resolved, it makes to the next available dns server listed in the file, else it fails the resolution of the domain name.
