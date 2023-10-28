@@ -15,3 +15,5 @@ So, your system simply updates the /etc/resolv.conf file with the ip address of 
 So, whenever your system needs to resolve a domain name, it simply makes dns resolve request to the first dns server listed in the /etc/resolv.conf
 file, 
 and if it didn't get resolved, it makes to the next available dns server listed in the file, else it fails the resolution of the domain name.
+
+Make sure to update the dnsmasq service whenever you update the /etc/dnsmasq.conf file
