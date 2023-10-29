@@ -1,0 +1,24 @@
+Kubernetes the hard way:
+
+Working with kubernetes involves various ways to setup kubernetes on local nodes,
+1.minikube
+3.setup containerized kubernetes
+2.setup binaries
+
+of which minikube is the easiest way to setup single node kubernetes cluster.
+where you get buil-in docker daemon which is used to setup containers and also get kubectl 
+
+the second one, containerized way, is another way to setup the kubernetes, this is often sometimes simple to use and implement, but only useful for learning and development environment,
+not useful for production grades.
+
+
+The another one, which is setting up binaries, is one which is the production grade workflow, and often difficult to implement as we have to implement these on all participating nodes
+
+To work with minikube, bunch of tutorials can be found online, so no issues there,
+
+To setup containerized workflow, follow the official documentation :  https://kubernetes.io/docs/home/
+
+
+To setup binaries, also follow the official documentation: https://kubernetes.io/docs/home/
+but here, you can directly download official kubernetes components binaries from here: https://www.downloadkubernetes.com/
+
