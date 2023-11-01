@@ -21,3 +21,24 @@ This way you simply get the docker-compose file, run it using
 and then the localstack instance will spin up, it will do the same, will fetch the localstack/localstack image, from the registry, and then run it 
 with the parameters and configurations, here is that you can see those configurations in the docker-compose file.
 
+
+This is the example docker-compose file: 
+
+version: "3.8"
+
+services:
+  localstack:
+    container_name: "${LOCALSTACK_DOCKER_NAME-localstack_main}"
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
+    environment:
+      - DEBUG=${DEBUG-}
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+
+
