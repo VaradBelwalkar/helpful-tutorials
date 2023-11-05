@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  roles:  
+    - db_servers
+  
+- hosts: another_servers
+  roles:
+    another_servers_role
+
