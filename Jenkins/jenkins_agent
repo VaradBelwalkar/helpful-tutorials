@@ -1,0 +1,4 @@
+It is recommended to use jenkins-agent docker image to run your project builds
+You can configure that image by using it as base image and by installing your required build tools and creating a custom image
+
+    Image to use :  jenkins/agent:alpine-jdk11
