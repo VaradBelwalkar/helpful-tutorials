@@ -1,0 +1,9 @@
+sudo swapoff -a 
+sudo kubeadm reset
+sudo rm -rf /var/lib/cni/
+sudo systemctl daemon-reload
+sudo iptables -F && sudo iptables -t nat -F && sudo iptables -t mangle -F && sudo iptables -X
+
+
+
+https://stackoverflow.com/a/62705332/16383981

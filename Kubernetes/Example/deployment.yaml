@@ -1,0 +1,41 @@
+apiVersion: 
+kind: Deployment
+metadata:
+  name: some-deployment-name
+  labels:
+    app: someapp
+
+spec:
+  selector:
+    matchLabels:
+      app: actualPod
+  
+  template: 
+    metadata:
+      name: podname
+      labels:
+        app: actualPod
+    
+    spec:
+      containers:
+      - name: somecontainername
+        image: varadbelwalkar/golang_server
+
+
+---
+
+apiVersion:
+kind: Service
+metadata:
+  name: some-service-name
+  labels:
+    somelabel: servicelabel
+type: LoadBalancer 
+spec:
+  selector:
+    app: actualPod
+  ports:
+  - port: 1200
+    targetPort: 8080
+    nodePort: 30000
+    

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: someservicename
+  labels:
+    someservicelabel: someservicelabelvalue
+spec:
+  selector:
+    podLabel: somepodlabel
+  type: LoadBalancer
+  ports:
+  - port: 22
+    targetPort: 22
+    nodePort: 32000
+

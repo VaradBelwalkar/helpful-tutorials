@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: somepodname
+  labels:
+    podLabel: somepodlabel
+spec:
+  containers:
+  - name: containername
+    image: varadbelwalkar/user_pass_ssh_able_ubuntu
+    

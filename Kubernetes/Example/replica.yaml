@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: somereplicasetname
+  labels:
+    replicaSetName: somereplicalabel
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      podLabel: somepodlabel
+  template:
+    metadata:
+      name: somepodname
+      labels:
+        podLabel: somepodlabel
+    spec:
+      containers:
+      - name: containername
+        image: varadbelwalkar/user_pass_ssh_able_ubuntu
+
