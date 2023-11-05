@@ -6,7 +6,8 @@ However this virtual switch is not visible.
 
 Scenario is,
 
-![image](https://github.com/VaradBelwalkar/helpful-tutorials/assets/86964576/a5403ff8-7997-46f1-9d57-06778e400389)
+![image](https://github.com/VaradBelwalkar/helpful-tutorials/assets/86964576/96cd6891-03db-4baf-8a87-5b331052caec)
+
 
 
 
