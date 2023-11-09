@@ -1,6 +1,6 @@
 This is my NAT table from the iptables command i.e in the netfilter.
 
-##############################################################################################################
+```
 Chain PREROUTING (policy ACCEPT)
 num  target     prot opt source               destination         
 1    DOCKER     all  --  anywhere             anywhere             ADDRTYPE match dst-type LOCAL
@@ -19,8 +19,7 @@ num  target     prot opt source               destination
 Chain DOCKER (2 references)
 num  target     prot opt source               destination         
 1    RETURN     all  --  anywhere             anywhere
-##############################################################################################################
-
+```
 
 Chain PREROUTING:
 This chain is responsible for packets as they arrive on the network interface before any routing decisions are made. 

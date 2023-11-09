@@ -24,13 +24,13 @@ Fine, but suppose,
 
 
 your company has bought multiple ip networks
-
+```
 198.168.4.0/24
 198.168.5.0/24
 198.168.6.0/24
 12.10.0.0/16
 145.0.0.0/8
-
+```
 
 here, of course you need to manage the networking on the routers which are actually conncting to the networks, and 
 there are other routers which are going to get that information to route the packets to it, and here, you cannot simply 

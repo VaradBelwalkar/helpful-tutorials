@@ -1,4 +1,5 @@
 Consider this mongodb pipeline: 
+```
         db.movies.aggregate([
 
           // First Stage
@@ -26,7 +27,7 @@ Consider this mongodb pipeline:
            { $sort: { averageGenreRating: -1 } }
 
         ] )"
-
+```
 
 
 
