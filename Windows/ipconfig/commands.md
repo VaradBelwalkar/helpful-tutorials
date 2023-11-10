@@ -1,15 +1,31 @@
-&&&&&&&&&&  IPCONFIG is primarily used for showing the network information &&&&&&&&&&
+**ipconfig** is primarily used for showing the network information
 
 
-***Display normal info***
+Display normal info
   
 ```
 ipconfig
 ```
 
-***Display all info***
+Display all info
 
 ```
 ipconfig /all
 ```
+
+Display DNS cache information:
+
+```
+ipconfig /displaydns
+```
+
+Flush the DNS resolver cache:
+```
+ipconfig /flushdns
+```
+
+
+
+
+
 
