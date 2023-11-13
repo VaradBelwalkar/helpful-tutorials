@@ -1,3 +1,20 @@
+First in case you messed up with the lxd by creating cluster,and now you are unable to access the lxd daemon,  
+because your IP has changed,  
+If you don't have any critical information stored in any of the lxd instances, you can simply remove all the files, under,    
+```
+/var/snap/lxd/common/lxd/database/
+```
+by running,  
+```
+sudo rm -rf /var/snap/lxd/common/lxd/database/*
+```
+And thereafter running `lxd init` again to configure new workflow.
+
+---
+
+## Commands
+
+
 Creating a New Container:
 ```
 lxc init ubuntu:22.04 my-container
