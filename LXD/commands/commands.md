@@ -1,6 +1,6 @@
 Creating a New Container:
 ```
-lxc init ubuntu:20.04 my-container
+lxc init ubuntu:22.04 my-container
 ```
 
 Starting a Container:
