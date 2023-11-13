@@ -14,10 +14,30 @@ And thereafter running `lxd init` again to configure new workflow.
 
 ## Commands
 
+List remote repositories that make images available:  
+```
+lxc remote list
+```
+And to see which images are available on a particular remote repository:
+```
+lxc image list <remote_name>:
+e.g
+lxc image list images:
+```
+
+Copy the image from the remote repository to local  
+The only way to pull images to local repo is to copy from remote end.
+```
+lxc image copy images:ubuntu/22.04/amd64 local: --alias ubuntu
+```
+Launch a container from image, pull image if not exists:  
+```
+lxc launch ubuntu container-name
+```
 
 Creating a New Container:
 ```
-lxc init ubuntu:22.04 my-container
+lxc init ubuntu my-container
 ```
 
 Starting a Container:
@@ -30,18 +50,92 @@ Stopping a Container:
 lxc stop my-container
 ```
 
+Delete a container:  
+```
+lxc delete container-name
+```
+
+List storage pools(You can't run anything if there is no storage pool, as it doesn't create automatically like docker does)
+```
+lxc storage list
+```
+
+
+Create a storage pool to be used by containers/vms:  
+Here, the preferred storage driver in my case is dir, others are btrfs etc.
+```
+lxc storage create storage-name dir source=/var/snap/lxd/common/lxc/storage-pools/storage-name
+```
+
+To launch or init a container in a particular storage pool:  
+```
+lxc launch ubuntu container-name -s mystoragepool
+
+lxc init ubuntu container-name -s mystoragepool
+```
+
+To make a storage pool default:   
+```
+
+```
+Make sure that you have freshly created pool, otherwise this won't work, or the pool which is empty.
+Before you make any storage pool default for a profile(default is default), the profile looks like: 
+```
+config: {}
+description: Default LXD profile
+devices:
+  root:
+    path: /
+    pool: local
+    type: disk
+name: default
+used_by: []
+
+
+```
+See there is a default entry for the devices section, where root means the default device, which will be used for storage if not specified.    
+So to configure the default storage for this profile, i.e to change the pool, you can either do it manually,
+```
+lxc profile edit default
+```
+and then change the pool name to the name that you want as default pool, 
+while the path mentioned there is nothing but, relative path against the pool configured,
+so if storage pool you are using here is `/var/snap/lxd/common/lxd/storage-pools/local`
+then the path is considered as root i.e /, meaning that if you configure path to be /containers, 
+then the containers that you create using this profile, in term, using this default storage pool,
+the actual container directory will be created at `/var/snap/lxd/common/lxd/storage-pools/local/containers/<container-name>` location.
+
+The recommended way to change this config is,
+
+```
+lxc profile device set default root pool=<pool_name>
+```
+Here, we are editing profile, so the `lxc profile` command,  
+next, we want to edit the devices section, so the  `device set`,  
+next, the profile `default` one,  
+pool 
+next, `root` means the relative path against the choosen pool(explained above)  
+and poo=<pool_name> means we are changing/adding that property.
+
+
 Accessing a Container's Console:
 ```
 lxc console my-container
 ```
+This is similar to getting a shell in the container with the `exec` command, but requires password for the 
+user already set up.
+
+
 Executing a Command Inside a Container:
 ```
-lxc exec my-container -- ls -l
+lxc exec my-container ls -l
 ```
+
 Creating Snapshots:
 ```
 lxc snapshot my-container snapshot-1
 ```
+
 Restoring from a Snapshot:
 ```
 lxc restore my-container snapshot-1
