@@ -137,7 +137,10 @@ Adding a repository to the remote list:
 lxc remote add --protocol simplestreams ubuntu https://cloud-images.ubuntu.com/releases/
 ```
 
-
+configure a vm/container: 
+```
+lxc config edit vm/container
+```
 
 Creating Snapshots:
 ```
