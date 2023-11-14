@@ -131,6 +131,14 @@ Executing a Command Inside a Container:
 lxc exec my-container ls -l
 ```
 
+
+Adding a repository to the remote list: 
+```
+lxc remote add --protocol simplestreams ubuntu https://cloud-images.ubuntu.com/releases/
+```
+
+
+
 Creating Snapshots:
 ```
 lxc snapshot my-container snapshot-1
