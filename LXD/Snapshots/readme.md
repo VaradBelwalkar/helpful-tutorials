@@ -21,7 +21,11 @@ Openstack's Overlay workflow is 1000x times better than this, as creating snapsh
 features and configurations which might break system, so having an entire copy of the thing is definitely not the solution, but lXD ignores it :|
 
 
-Here, when you delete the instance, snapshots are deleted as well!  
+
+Remember, containers are no different here, the same thing applies for container snapshots as well, as i also tested them,
+where container rootfs size of around 488MB was exactly copied to snapshot section, making it also not suitable for creating snapshots!
+
+Here, when you delete the instance/, snapshots are deleted as well!  
 
 
 
