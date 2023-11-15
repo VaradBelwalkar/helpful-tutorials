@@ -83,6 +83,14 @@ Before you make any storage pool default for a profile(default is default), the 
 ```
 config: {}
 description: Default LXD profile
+devices: {}
+name: default
+used_by: []
+```
+and after change it will look like this: 
+```
+config: {}
+description: Default LXD profile
 devices:
   root:
     path: /
@@ -91,10 +99,9 @@ devices:
 name: default
 used_by: []
 
-
 ```
-See there is a default entry for the devices section, where root means the default device, which will be used for storage if not specified.    
-So to configure the default storage for this profile, i.e to change the pool, you can either do it manually,
+ 
+So to configure the default storage for this profile, i.e to change the pool, you can either do it manually, by looking at the end result as above: 
 ```
 lxc profile edit default
 ```
