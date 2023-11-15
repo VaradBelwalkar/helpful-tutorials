@@ -74,10 +74,6 @@ lxc launch ubuntu container-name -s mystoragepool
 lxc init ubuntu container-name -s mystoragepool
 ```
 
-To make a storage pool default:   
-```
-
-```
 Make sure that you have freshly created pool, otherwise this won't work, or the pool which is empty.
 Before you make any storage pool default for a profile(default is default), the profile looks like: 
 ```
