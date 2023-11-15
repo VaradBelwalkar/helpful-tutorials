@@ -112,6 +112,19 @@ then the path is considered as root i.e /, meaning that if you configure path to
 then the containers that you create using this profile, in term, using this default storage pool,
 the actual container directory will be created at `/var/snap/lxd/common/lxd/storage-pools/local/containers/<container-name>` location.
 
+
+As you can see above, there is no entry in the device section, so first we need to add a device called root so that it will used by default, and set it params,
+this is recommended way rather than editing the file manually,
+
+```
+lxc profile device add default root disk pool=local path=/
+
+```
+Here we are addding the device called root to the default profile and setting the `pool` to `local`, and `path` to `/` here.
+Here the type of device(root) is disk.
+
+
+But if you have already the root device over there, simply edit its configuration if not suitable.  
 The recommended way to change this config is,
 
 ```
