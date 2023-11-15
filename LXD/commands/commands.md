@@ -238,6 +238,8 @@ Downloading Files from a Container:
 lxc file pull my-container/root/path/in/container/file /path/to/local/destination/
 ```
 
+Simply add a recursive flag `-r` in case it is a directory.
+
 
 Listing Snapshots:
 ```
