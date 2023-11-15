@@ -130,8 +130,8 @@ Here, we are editing profile, so the `lxc profile` command,
 next, we want to edit the devices section, so the  `device set`,  
 next, the profile `default` one,  
 pool 
-next, `root` means the relative path against the choosen pool(explained above)  
-and poo=<pool_name> means we are changing/adding that property.
+next, `root` means the device we want to configure
+and pool=<pool_name> means we are changing/adding that property.
 
 
 Accessing a Container's Console:
