@@ -97,131 +97,24 @@ while creating the instance, which makes sense.
 You can also update the security group while the instance is using it, and the changes will be immediate.
 
 
+---
 
 
+Now in the case of defaultVPC, the thing is, it is created by default in all AWS regions, with subnets precreated in all availability zones
+for you.
 
+You also get a default Internet Gateway precreated, and also that Internet Gateway is associated with the defaultVPC, so that all your
+subnets can reach to the internet,
 
+and by default, all the subnets auto-assign public ip to the instances, i.e defaultely perform static NAT from private to public and vice versa
 
+And also the main route table contains entry 
+```
+Destination           Gateway
+0.0.0.0/0       <precreated Gateway>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
+This makes sure that the instances are able to reach the internet and vice versa.
 
 
 
