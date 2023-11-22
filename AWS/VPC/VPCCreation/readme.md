@@ -76,10 +76,64 @@ I know this might sound weird but it is as it is!
 
 When you create a NAT gateway, you have option to assign the public IP on the fly or choose the available IP from elastic IPs you reserved.
 
-Well when you create the NAT gateway, you again, need to associate it with a subnet, so when you associate with a subnet, it actually goes
-into the container, and as said above, it maps all the private ips from the subnet, to one public ip mentioned as above, via port workflow and
-sends to the internet, and after response comes, checks the table, and then sends accordingly to the particular instance
-So here only one public ip is enough to be able to reach internet but **not** vice versa!
+Well when you are creating a NAT gateway, you need to give in which subnet you want to create it, so that it goes in that particular
+container, but it **doesn't** automatically start doing PAT.
+
+Here, understand that, even if you create this NAT device in a particular subnet, it doesn't mean that other subnets can't use it.
+
+Suppose you want to use the NAT Gateway for the same subnet as your NAT device is,
+
+So you simply add the following Entry in your routing table,
+
+```
+Destination                      Gateway
+0.0.0.0/0               <Your NAT Gateway (NOT internet gateway) >
+
+```
+So there be come the NAT gateway option, and you simply select it, and now your subnet traffic will get PATTED.
+
+But suppose you want to also utilize this NAT device for another subnet, well you can do that.
+Simply do the same as above to the routing table of that particular subnet, here you need to create custom routing table for that subnet,
+as without which you will configure the main route table and thus each subnet will use this unnecessarily.
+
+Here, You can also let only specific services to be accessible on the internet for speicifc users in specific subnets by using this NAT
+table, by configuring custom route tables, How cool is this!
+
+Here understand that this NAT gateway is like a device, which actually gets a private IP in the associated subnet,
+and does the necessary stuff.
+
+
+But of course, you will create this NAT gateway in the subnet where you want to actually use it right?
+As latency will be minimum.
+
+
+But here is a catch!
+
+
+
+Lets say you created a NAT and attached to a subnet, and after that created custom route table, made `0.0.0.0/0` go towards 
+this device, so that the the instances in this subnet are able to access the internet,
+but the thing is, how will you check this?
+
+Well here you can create a public instance, in another subnet, yes you heard it right,
+because if you create an instance in the same subnet where the NAT is configured to do PAT as per route table for that subnet, and attach a public ip to it with elastic ip, the thing is the public ip is of no use, as the NAT device will override this and make your instance
+basically private, meaning that the configuration in the container is initially the public ip to private ip mapping for the instance,
+but now you also have the NAT configured where the route table targets that, so the problem is, your traffic will go from the container
+as if it is public, but when it reaches the NAT device, it will take it and do PAT,  and now your public ip existance has gone,
+
+So the public ip is of no use, and you cannot access this instance even if public ip is showing associated with it.
+
+So the only way is run this instance in another subnet,
+
+OR
+
+You can configure the route table to route to the internet gateway instead of the NAT gateway for that particular ip of the public instance
+So this will also work.
+
+
+
+
+
 
 
 
