@@ -55,7 +55,7 @@ Destination                 Gateway
 
 This now makes sure that your traffic will reach the internet and vice versa.
 
-] ---
+---
 
 
 When you say `no` to the auto-assign public ip in the create subnet section,
