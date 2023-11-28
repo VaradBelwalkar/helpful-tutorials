@@ -1,0 +1,55 @@
+ #!/bin/bash
+
+
+yt-dlp "https://www.youtube.com/watch?v=i53Gi_K3o7I&list=PLot-Xpze53le35rQuIbRET3YwEtrcJfdt&pp=iAQB"
+
+echo 1
+
+yt-dlp "https://www.youtube.com/watch?v=q6IEA26hvXc&list=PLot-Xpze53letfIu9dMzIIO7na_sqvl0w&pp=iAQB"
+
+echo 2
+
+yt-dlp "https://www.youtube.com/watch?v=1pkOgXD63yU&list=PLot-Xpze53leOBgcVsJBEGrHPd_7x_koV&pp=iAQB"
+
+echo 3
+
+yt-dlp "https://www.youtube.com/watch?v=jzZsG8n2R9A&list=PLot-Xpze53lfOdF3KwpMSFEyfE77zIwiP&pp=iAQB"
+
+echo 4
+
+yt-dlp "https://www.youtube.com/watch?v=9UtInBqnCgA&list=PLot-Xpze53lfQmTEztbgdp8ALEoydvnRQ&pp=iAQB"
+
+echo 5
+
+yt-dlp "https://www.youtube.com/watch?v=WTzjTskDFMg&list=PLot-Xpze53lfxD6l5pAGvCD4nPvWKU8Qo&pp=iAQB"
+
+echo 6
+
+yt-dlp "https://www.youtube.com/watch?v=KLlXCFG5TnA&list=PLot-Xpze53ldVwtstag2TL4HQhAnC8ATf&pp=iAQB"
+
+echo 7
+
+yt-dlp "https://www.youtube.com/watch?v=utDu3Q7Flrw&list=PLot-Xpze53ldBT_7QA8NVot219jFNr_GI&pp=iAQB"
+
+echo 8
+
+yt-dlp "https://www.youtube.com/watch?v=pfiQ_PS1g8E&list=PLot-Xpze53lf5C3HSjCnyFghlW0G1HHXo&pp=iAQB"
+
+echo 9
+
+yt-dlp "https://www.youtube.com/watch?v=QfJsau0ItOY&list=PLot-Xpze53ldg4pN6PfzoJY7KsKcxF1jg&pp=iAQB"
+
+echo 10
+
+yt-dlp "https://www.youtube.com/watch?v=YUF3_eBdzsk&list=PLot-Xpze53leNZQd0iINpD-MAhMOMzWvO&pp=iAQB"
+
+echo 12
+
+
+yt-dlp "https://www.youtube.com/watch?v=S5bfdUTrKLM&list=PLot-Xpze53leU0Ec0VkBhnf4npMRFiNcB&pp=iAQB"
+
+echo 13
+
+yt-dlp "https://www.youtube.com/watch?v=g0npyaQtAQM&list=PLot-Xpze53lcvx_tjrr_m2lgD2NsRHlNO&pp=iAQB"
+
+echo 14
