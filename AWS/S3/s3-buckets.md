@@ -2,7 +2,7 @@ S3 buckets are somewhat like google drive storages.
 
 Here, S3 is an object storage, meaning simply you store files and folders under a bucket, and that is all, hence it is also called as flat storage, as it doesn't involve any file system.
 
-Here is an overview of S3 storage given by network kings:
+Here is an overview of S3 storage given by network kings youtube session:
 
 
 ![image](https://github.com/VaradBelwalkar/helpful-tutorials/assets/86964576/bdecdc6c-c89f-4ae9-852f-5f38cd465271)
