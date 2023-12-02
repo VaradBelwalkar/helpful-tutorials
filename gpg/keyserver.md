@@ -1,4 +1,4 @@
-##Key Distribution
+## Key Distribution
 The process of making your key publicly available on a keyserver is coupled with an important security measure - email authorization. Upon upload, the keyserver sends an email to the associated address with a link for authorization. Clicking on this link is mandatory for the key to be accessible to others for search and download, primarily based on email search.
 
 This approach not only ensures the legitimacy of key ownership but also safeguards against attempts to manipulate key distribution for malicious purposes. The email authorization step adds an extra layer of protection, making the key distribution process more resilient against potential threats.
