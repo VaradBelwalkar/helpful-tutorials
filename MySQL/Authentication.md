@@ -3,25 +3,25 @@ MySQL authentication can be intricate, especially when running scripts or progra
 
 ### Authentication Plugin Challenges
 
-When using MySQL with sudo privileges:
+When using MySQL with `sudo` privileges:
 
 ```
 sudo mysql
 ```
 
-Being a superuser grants direct access to the root account without requesting a password. However, attempting to log in manually without `sudo`:
+Being a superuser grants direct access to the `root` account without requesting a password. However, attempting to log in manually without `sudo`:
 
 ```
 mysql
 ```
 
-Results in a permission denied error. Even providing the correct password for the root account:
+Results in a permission denied error. Even providing the correct password for the `root` account:
 
 ```
 mysql -u root -p
 ```
 
-Leads to permission denied issues. This is because the default authentication mechanism for the root account is set to auth_socket (Unix socket). Consequently, accessing /var/run/mysql.sock is necessary for authentication, which normal user can't.
+Leads to permission denied issues. This is because the default authentication mechanism for the root account is set to `auth_socket` (Unix socket). Consequently, accessing `/var/run/mysql.sock` is necessary for authentication, which normal user can't.
 
 ### Authentication Plugin Switch
 To resolve this challenge, change the authentication plugin to `mysql_native_password`. This plugin authenticates based on the password, independent of machine privileges or local/remote execution.
