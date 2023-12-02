@@ -1,9 +1,7 @@
+##Key Distribution
+The process of making your key publicly available on a keyserver is coupled with an important security measure - email authorization. Upon upload, the keyserver sends an email to the associated address with a link for authorization. Clicking on this link is mandatory for the key to be accessible to others for search and download, primarily based on email search.
 
-When you upload your key to any keyserver, that keyserver sends an email to the email associated with the publickey    
-and only when that email is authorized by the email holder, that key becomes available to others to see and search and download on basis oc email search   
-the email typically includes a link which you need to click on in order to authorize that key and let it be publically available    
-This minimises the risk of anyone putting publickey on the name of anyone pretending to be someone on the internet    
-so you can't just put your publickey with email of other organisation and hope to man-in-the-middle in organization's communication    
+This approach not only ensures the legitimacy of key ownership but also safeguards against attempts to manipulate key distribution for malicious purposes. The email authorization step adds an extra layer of protection, making the key distribution process more resilient against potential threats.
 
 
 
