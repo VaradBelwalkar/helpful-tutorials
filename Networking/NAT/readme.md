@@ -11,13 +11,13 @@ But how does this work?
 
 You might be knowing that the private ip ranges are,
 
-#############################################################################
+```shell
 10.0.0.0/8
 
 172.16.0.0/14       this means from 172.16.0.0   to   172.31.255.255
 
 192.168.0.0/16
-#############################################################################
+```
 
 But what does this mean?
 
@@ -69,12 +69,12 @@ and the endpoint itself
 
 Here, you smartphone also has routing table, now understand, every computer has a routing table, 
 
-when you make a request to ip suppose 120.0.2.2/24
-Here, you phone doesn't have any routing information in routing table about this network right, i.e about 120.0.2.0/24,
+when you make a request to ip suppose `120.0.2.2/24`
+Here, you phone doesn't have any routing information in routing table about this network right, i.e about `120.0.2.0/24`,
 So if the phone doesn't know where to send, it sends to the default gateway, 
 
-with source ip lets say 192.168.2.2 and dest ip of that gateway 192.168.1.1,
-with source port 51k and dest port 80
+with source ip lets say `192.168.2.2` and dest ip of that gateway `192.168.1.1`,
+with source port `51k` and dest port `80`
 
 now when this request comes to the router, the router knows that it has performed NAT (I WILL EXPLAIN HOW IT KNOWS LATER)
 on this particular interface, so what router does, as it is  a provider edge router, it will definitely will be running a BGP protocol
@@ -83,10 +83,10 @@ so when this packet comes on it, it first finds the network to which it belongs 
 you may say,
 once it gets the next hop and the ip of next hop, 
 it simply gets a free port from his pool of ports lets say 40k and makes an entry in the NAT table like following (not exactly)
-
+```
 source IP      Dest IP     sourceport      destport       allo.port
 192.168.2.2     120.0.2.2      51k            80               40k
-
+```
 
 
 this entry persists until it becomes inactive(will discuss later),
@@ -96,10 +96,10 @@ next hop, always remember the ip address of that interface only from which it is
 and the source port to 40k and finally sends it.
 
 once it gets the response packet, what does that packet has?
-it has source ip 120.0.2.2, source port 80,
-       dest ip 29.20.2.4, dest port 40k
+it has source ip `120.0.2.2`, source port `80`,
+       dest ip `29.20.2.4`, dest port `40k`
 
-Here the router gets this packet from that interface which is having ip 29.20.2.4,
+Here the router gets this packet from that interface which is having ip `29.20.2.4`,
 so first time, router might think that this packet is for itself, so there are configuration dependancies whether router will take time to check
 whether any of its services is listening on the port 40k (which obviously not at all possible) or directly go to NAT table when it finds a packet
 dedicated for it, 
@@ -158,66 +158,4 @@ to go to the its gatway or default route again!
 So, the concept of gateway or default route is not just used in the private network but also in such scenarios,
 but yes, this is technique used by ISPs today by allocating single public ip address to their such routers and configuring default route to 
 their main routers which actually participate in BGP topology to exchange routing tables and so on.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
