@@ -109,7 +109,7 @@ the packet, it discards the packet, yes it discards, and you may say that the in
 so if router finds and entry,
 
 if checks whether the packet is following everything or not, i.e it is coming from the intended destination, the port is correct,
-and so on, once it is checked, the router simply changes the destination ip to 192.168.2.2 here, and also the destination port to 51k as before,
+and so on, once it is checked, the router simply changes the destination ip to `192.168.2.2` here, and also the destination port to 51k as before,
  and then it checks in the routing table where to send that packet to, so it finds the interface to which it needs to send,
 
 here, if in  the routing table, the entry is there for the network which here is indeed private and there is shown the interface to which the packet
@@ -137,8 +137,8 @@ session established already i.e in the NAT table there should be entry and only 
 Also some ISP don't care about these ranges even,
 in fact, my mobile has got ip address 25.23.14.187 from jio ISP, which means that it really doesn't matter at the router end, why?
 
-Well, suppose this network is /24,
-and the interface to which i am connected to i.e gateway is 25.23.14.1/24, 
+Well, suppose this network is `/24`,
+and the interface to which i am connected to i.e gateway is `25.23.14.1/24`, 
 now when the router performs NAT and is going to send the packet to the outside, it is going to add the source IP of the interface from which 
 it is going to forward the packet to the next hop, according to NAT policy, and once the response comes it is for the same router i.e
 with the ip address of that interface, then router first may check if any service wants that packet which is listening on its os,
