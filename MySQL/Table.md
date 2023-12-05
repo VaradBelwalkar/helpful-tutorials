@@ -58,6 +58,35 @@ Truncate the table:
 TRUNCATE TABLE customers;
 ```
 
+Update foreign key constraint
+```
+ALTER TABLE table1
+ADD CONSTRAINT fk_constraint_name
+FOREIGN KEY (column_in_table1)
+REFERENCES table2(column_in_table2);
+```
+
+
+Set not null for a single column
+
+```
+ALTER TABLE your_table
+ALTER COLUMN your_column SET NOT NULL;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
