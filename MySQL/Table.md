@@ -70,8 +70,7 @@ REFERENCES table2(column_in_table2);
 Set not null for a single column
 
 ```
-ALTER TABLE your_table
-ALTER COLUMN your_column SET NOT NULL;
+ALTER TABLE registration MODIFY COLUMN password TEXT NOT NULL;
 ```
 
 
