@@ -66,11 +66,7 @@ the recommended way is to use the `mysql_secure_installation` binary which comes
 
 It removes the above headache and configures the mysql for our use.
 
-
-
-
-
-
+so simply run that binary and answer the prompts then you are ready to rock!
 
 
 
