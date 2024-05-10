@@ -40,5 +40,42 @@ To officially install mysql server on you pc, along with the shell as well i.e c
 
 
 
+---
+
+Another method (for Kali linux):
+
+This is required, weird but true in case of kali linux:
+```
+sudo mkdir -p /etc/mysql
+sudo touch /etc/mysql/mariadb.cnf
+```
+
+This will setup both client and the server part:
+
+```
+apt install mariadb-server
+```
+
+After this, whatever you try, mysqld or mariadbd won't start, either start by yourself with binaries or through services, they won't start.
+
+The reason behind this is mysql/mariadb is just installed, and not configured, configuring it manually is a headache, you have create various directories and make sure that the mysql is able to access them, lots of errors will come, and after that you need to create some default tables 
+in mysql to be able to actually start the the server successfully and be able to work with it.
+
+the recommended way is to use the `mysql_secure_installation` binary which comes along with the above package.
+
+
+It removes the above headache and configures the mysql for our use.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
